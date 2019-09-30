@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
+string
+-
+
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/main.cpp
+iostream
+-
+map
+-
+Pattern.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
+
