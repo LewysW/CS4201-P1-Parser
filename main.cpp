@@ -10,15 +10,11 @@ int main() {
      * https://regex101.com/
      */
 
-    std::cout << "Hello, World!" << std::endl;
-
     std::map<TokenType, std::string>::iterator it;
 
     for (it = patterns.begin(); it != patterns.end(); it++) {
         printf("%d: ", it->first);
         std::cout << it->second << std::endl;
     }
-
-    std::cout << TokenType::
     return 0;
 }
