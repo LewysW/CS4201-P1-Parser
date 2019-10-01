@@ -11,34 +11,31 @@ using std::cout;
 using std::endl;
 
 int main() {
-    string test = "program fib;\n"
+    string test = "program Test\n"
             "begin\n"
-            "var n;\n"
-            "var first := 0;\n"
-            "var second :=1;\n"
-            "var next;\n"
-            "var c :=0 ;\n"
-            "print \"enter the number of terms\";\n"
-            "get n;\n"
-            "while ( c < n)\n"
+            "{- define the procedure function -}\n"
+            "procedure function( var x, var y )\n"
             "begin\n"
-            "if ( c and 1)\n"
-            "then begin next := c; end\n"
-            "else begin\n"
-            " next := first + second;\n"
-            " second := next;\n"
+            "return x + y;\n"
             "end\n"
-            "print next;\n"
-            "c := c + 1;\n"
+            "procedure main ()\n"
+            "begin\n"
+            "var result;\n"
+            "{- call the procedure called\n"
+            " function -}\n"
+            "result := function(1, 2);\n"
+            "print (result);\n"
             "end\n"
             "end";
 
     std::map<TokenType, string> regPatterns = createMap();
-    Lexer lexer(regPatterns);
+    Lexer lexer();
 
-    cout << lexer.getRegex() << endl;
+    //TODO change to use vector and have TokenType as first value in pair
     std::map<size_t, std::pair<string, string>> tokens;
 
+
+    //TODO comment each section so I have an idea of what it does
     for (auto pat = regPatterns.begin(); pat != regPatterns.end(); ++pat) {
         regex r(pat->second, regex::extended);
         auto words_begin = sregex_iterator(test.begin(), test.end(), r);

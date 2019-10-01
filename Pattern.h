@@ -3,29 +3,31 @@
 
 namespace Pattern {
     enum class TokenType {
+        BOOL,
         IF,
         THEN,
         ELSE,
         WHILE,
-        LPAREN,
-        RPAREN,
         PRINT,
         PRINTLN,
-        COMMENT,
         VAR,
         GET,
-        ASSIGNMENT,
-        BOOL,
         LOGICAL,
+        PROGRAM,
+        PROCEDURE,
+        RETURN,
+        BEGIN,
+        END,
+        ID,
+        COMMENT,
+        LPAREN,
+        RPAREN,
+        ASSIGNMENT,
         RELOP,
         ARITH,
         SEMI,
-        PROGRAM,
-        BEGIN,
-        END,
         INT,
-        REAL,
-        ID
+        REAL
     };
 }
 

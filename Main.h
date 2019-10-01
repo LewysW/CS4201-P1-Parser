@@ -15,26 +15,42 @@ std::map<Pattern::TokenType, std::string> createMap() {
             {TokenType::THEN, "then"},
             {TokenType::ELSE, "else"},
             {TokenType::WHILE, "while"},
-            {TokenType::LPAREN, "\\("},
-            {TokenType::RPAREN, "\\)"},
             {TokenType::PRINT, "print"},
             {TokenType::PRINTLN, "println"},
-            {TokenType::COMMENT, "\\{-|-\\}"},
             {TokenType::VAR, "var"},
             {TokenType::GET, "get"},
-            {TokenType::ASSIGNMENT, ":="},
             {TokenType::LOGICAL, "and|or|not"},
-            //https://stackoverflow.com/questions/15937672/catch-the-relational-operators-with-regex
-            {TokenType::RELOP, "<|<=|>=|>|=="},
-            {TokenType ::ARITH, "\\+|-|\\/|\\*"},
-            {TokenType::SEMI, ";"},
             {TokenType::PROGRAM, "program"},
+            {TokenType::PROCEDURE, "procedure"},
+            {TokenType::RETURN, "return"},
             {TokenType::BEGIN, "begin"},
             {TokenType::END, "end"},
+            {TokenType::ID, "foo"}, //TODO expand ID values beyond letters and numbers
+            {TokenType::COMMENT, "\\{-|-\\}"},
+            {TokenType::LPAREN, "\\("},
+            {TokenType::RPAREN, "\\)"},
+            {TokenType::ASSIGNMENT, ":="},
+            //https://stackoverflow.com/questions/15937672/catch-the-relational-operators-with-regex
+            {TokenType::RELOP, "<|<=|>=|>|=="},
+            {TokenType ::ARITH, "\\+|-?=}|\\/|\\*"},
+            {TokenType::SEMI, ";"},
             {TokenType::INT, "[0-9]+"},
             {TokenType::REAL, "[+-]?([0-9]*)?[.][0-9]+"}
-            //{TokenType::ID, "[a-zA-Z]([a-zA-Z]|[0-9])*"} //TODO expand ID values beyond letters and numbers
     };
 
+    /*std::string strRegex;
+
+    for (auto const& p : patterns) {
+        if (p.first == TokenType::ID) break;
+
+        strRegex += p.second + "|";
+    }
+
+    strRegex = strRegex.substr(0, strRegex.size() - 1);
+    strRegex = "(?!" + strRegex;
+    strRegex += "\\b)\\b\\w+";
+
+    patterns[TokenType::ID] = strRegex;
+    std::cout << strRegex << std::endl;*/
     return patterns;
 }

@@ -9,9 +9,7 @@ private:
     std::string regex;
 
 public:
-    explicit Lexer(std::map<Pattern::TokenType, std::string> pairs);
-    std::string getRegex() const;
-    void setRegex(std::map<Pattern::TokenType, std::string> pairs);
+    Lexer();
 };
 
 
