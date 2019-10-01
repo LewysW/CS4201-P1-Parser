@@ -1,1 +1,1 @@
-/usr/lib64/ccache/c++  -g   CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o  -o CS4201_P1_Parser 
+/usr/lib64/ccache/c++  -g   CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o  -o CS4201_P1_Parser 

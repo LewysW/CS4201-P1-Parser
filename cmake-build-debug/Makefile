@@ -123,6 +123,33 @@ CS4201_P1_Parser/fast:
 	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/build
 .PHONY : CS4201_P1_Parser/fast
 
+Lexer.o: Lexer.cpp.o
+
+.PHONY : Lexer.o
+
+# target to build an object file
+Lexer.cpp.o:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o
+.PHONY : Lexer.cpp.o
+
+Lexer.i: Lexer.cpp.i
+
+.PHONY : Lexer.i
+
+# target to preprocess a source file
+Lexer.cpp.i:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.i
+.PHONY : Lexer.cpp.i
+
+Lexer.s: Lexer.cpp.s
+
+.PHONY : Lexer.s
+
+# target to generate assembly for a file
+Lexer.cpp.s:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.s
+.PHONY : Lexer.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... CS4201_P1_Parser"
+	@echo "... Lexer.o"
+	@echo "... Lexer.i"
+	@echo "... Lexer.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o"
+  "CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o"
   "CS4201_P1_Parser.pdb"
   "CS4201_P1_Parser"
 )
