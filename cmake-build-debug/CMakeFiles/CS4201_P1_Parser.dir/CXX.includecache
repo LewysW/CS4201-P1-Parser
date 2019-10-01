@@ -33,6 +33,8 @@ iostream
 -
 map
 -
+regex
+-
 Lexer.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
 Main.h

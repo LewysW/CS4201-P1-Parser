@@ -11,29 +11,29 @@ using Pattern::TokenType;
 std::map<Pattern::TokenType, std::string> createMap() {
     std::map<TokenType, std::string> patterns {
             {TokenType::BOOL, "true|false"},
-            {TokenType::IF, "\\bif"},
-            {TokenType::THEN, "\\bthen\\b"},
-            {TokenType::ELSE, "\\belse\\b"},
-            {TokenType::WHILE, "\\bwhile"},
+            {TokenType::IF, "if"},
+            {TokenType::THEN, "then"},
+            {TokenType::ELSE, "else"},
+            {TokenType::WHILE, "while"},
             {TokenType::LPAREN, "\\("},
             {TokenType::RPAREN, "\\)"},
-            {TokenType::PRINT, "\\bprint\\b"},
-            {TokenType::PRINTLN, "\\bprintln\\b"},
-            {TokenType::COMMENT, "{-|-}"},
-            {TokenType::VAR, "\\bvar\\b"},
-            {TokenType::GET, "\\bget\\b"},
+            {TokenType::PRINT, "print"},
+            {TokenType::PRINTLN, "println"},
+            {TokenType::COMMENT, "\\{-|-\\}"},
+            {TokenType::VAR, "var"},
+            {TokenType::GET, "get"},
             {TokenType::ASSIGNMENT, ":="},
-            {TokenType::LOGICAL, "\\band\\b|\\bor\\b|\\bnot\\b"},
+            {TokenType::LOGICAL, "and|or|not"},
             //https://stackoverflow.com/questions/15937672/catch-the-relational-operators-with-regex
-            {TokenType::RELOP, "(?:<=?|>=?|==|!=)"},
+            {TokenType::RELOP, "<|<=|>=|>|=="},
             {TokenType ::ARITH, "\\+|-|\\/|\\*"},
             {TokenType::SEMI, ";"},
-            {TokenType::PROGRAM, "\\bprogram\\b"},
-            {TokenType::BEGIN, "\\bbegin\\b"},
-            {TokenType::END, "\\bend\\b"},
+            {TokenType::PROGRAM, "program"},
+            {TokenType::BEGIN, "begin"},
+            {TokenType::END, "end"},
             {TokenType::INT, "[0-9]+"},
-            {TokenType::REAL, "[+-]?([0-9]*)?[.][0-9]+"},
-            {TokenType::ID, "[a-zA-Z]([a-zA-Z]|[0-9])*"} //TODO expand ID values beyond letters and numbers
+            {TokenType::REAL, "[+-]?([0-9]*)?[.][0-9]+"}
+            //{TokenType::ID, "[a-zA-Z]([a-zA-Z]|[0-9])*"} //TODO expand ID values beyond letters and numbers
     };
 
     return patterns;

@@ -14,5 +14,6 @@ void Lexer::setRegex(std::map<Pattern::TokenType, std::string> pairs) {
     for (auto const& p : pairs) {
         regex += "(" + p.second + ")|";
     }
+    //Removes | from end of regex string
     regex = regex.substr(0, regex.size() - 1);
 }
