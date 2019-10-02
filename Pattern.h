@@ -23,13 +23,16 @@ namespace Pattern {
         COMMENT,
         LPAREN,
         RPAREN,
+        DOUBLEQUOTE,
+        SINGLEQUOTE,
         ASSIGNMENT,
         RELOP,
         ARITH,
         SEMI,
         COMMA,
         INT,
-        REAL
+        REAL,
+        OTHER
     };
 }
 

@@ -37,12 +37,25 @@ std::string Lexer::readFile(string const& file) const {
  * Generates a list of tokens from the file of the Lexer
  * @return list of tokens
  */
+//TODO - handle errors with comments, string literals, and OTHER tokens
 std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
     std::vector<std::pair<TokenType, string>> symbols = match(false);
-    std::cout << "------------------------------------------" << std::endl;
     std::vector<std::pair<TokenType, string>> identifiers = match(true);
+    std::vector<std::pair<TokenType, string>> tokens;
 
-    std::cout << "Hello" << std::endl;
+    int index = 0;
+    for (std::pair<TokenType, string> & p : identifiers) {
+        if (p.second == symbols[index].second) {
+            tokens.emplace_back(symbols[index]);
+            index++;
+        } else {
+            tokens.emplace_back(p);
+        }
+
+        std::cout << TOKEN_STRINGS[static_cast<int>(tokens.back().first)] << ": " << tokens.back().second << std::endl;
+    }
+
+    return tokens;
 }
 
 /**
@@ -60,7 +73,6 @@ std::vector<std::pair<TokenType, string>> Lexer::match(bool matchID) const {
     std::vector<std::pair<TokenType, string>> tokens;
 
 
-    //TODO comment each section so I have an idea of what it does
     //Iterates over each pattern in the list of regex patterns
     for (auto pat = regPatterns.begin(); pat != regPatterns.end(); ++pat) {
         if (pat->first != TokenType::ID || matchID) {
@@ -73,7 +85,6 @@ std::vector<std::pair<TokenType, string>> Lexer::match(bool matchID) const {
 
             //Adds all of the valid tokens of the current pattern to the map
             for (auto it = words_begin; it != words_end; ++it) {
-//                tokens[it->position()] = make_pair(it->str(), pat->second);
                 matches[it->position()] = std::make_pair(it->str(), pat->first);
             }
         }
@@ -82,7 +93,7 @@ std::vector<std::pair<TokenType, string>> Lexer::match(bool matchID) const {
     //Assigns tokens to vector
     for (auto token = matches.begin(); token != matches.end(); token++) {
         tokens.emplace_back(std::make_pair(token->second.second, token->second.first));
-        std::cout << TOKEN_STRINGS[static_cast<int>(tokens.back().first)] << ": " << tokens.back().second << std::endl;
+        //std::cout << TOKEN_STRINGS[static_cast<int>(tokens.back().first)] << ": " << tokens.back().second << std::endl;
     }
 
     return tokens;
@@ -109,10 +120,12 @@ std::map<TokenType, string> Lexer::createTokenMap() const {
             {TokenType::RETURN, "return"},
             {TokenType::BEGIN, "begin"},
             {TokenType::END, "end"},
-            {TokenType::ID, "[a-zA-Z]([a-zA-Z]|[0-9])*"}, //TODO expand ID values beyond letters and numbers
+            {TokenType::ID, "[a-zA-Z]([a-zA-Z]|[0-9])*"},
             {TokenType::COMMENT, "\\{-|-\\}"},
             {TokenType::LPAREN, "\\("},
             {TokenType::RPAREN, "\\)"},
+            {TokenType::DOUBLEQUOTE, "\""},
+            {TokenType::SINGLEQUOTE, "\'"},
             {TokenType::ASSIGNMENT, ":="},
             //https://stackoverflow.com/questions/15937672/catch-the-relational-operators-with-regex
             {TokenType::RELOP, "<|<=|>=|>|=="},
@@ -120,8 +133,12 @@ std::map<TokenType, string> Lexer::createTokenMap() const {
             {TokenType::SEMI, ";"},
             {TokenType::COMMA, ","},
             {TokenType::INT, "[0-9]+"},
-            {TokenType::REAL, "[+-]?([0-9]*)?[.][0-9]+"}
+            {TokenType::REAL, "[+-]?([0-9]*)?[.][0-9]+"},
+            {TokenType::OTHER, "[!#$%&?@\\^\\_`\\|]"}
+
+            //TODO - match string literals rather than quotes and IDs
     };
+
     return patterns;
 }
 

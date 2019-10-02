@@ -2,7 +2,7 @@
 program test
                                    
 begin                              
-                                   
+
 	var n;
 	var first := 0;  
 	var second :=1; 
@@ -10,7 +10,7 @@ begin
 	var c :=0 ; 
 	
     print "enter the number of terms";
-    
+
     get n;  
     
     while ( first < (second > 32))

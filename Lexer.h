@@ -4,7 +4,13 @@
 #include <map>
 #include <vector>
 #include <regex>
-#define TOKEN_NUM 26
+#define TOKEN_NUM 29
+#define NULL_CHAR 0
+#define BACKSPACE 9
+#define HORIZONTAL_TAB 9
+#define VERTICAL_TAB 11
+#define CARRIAGE_RETURN 13
+#define SPACE 32
 
 class Lexer {
 private:
@@ -45,13 +51,16 @@ public:
             "COMMENT",
             "LPAREN",
             "RPAREN",
+            "DOUBLEQUOTE",
+            "SINGLEQUOTE",
             "ASSIGNMENT",
             "RELOP",
             "ARITH",
             "SEMI",
             "COMMA",
             "INT",
-            "REAL"
+            "REAL",
+            "OTHER"
     };
 };
 
