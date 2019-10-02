@@ -7,25 +7,29 @@
 #IncludeRegexTransform: 
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.cpp
+iostream
+-
+fstream
+-
 Lexer.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
+Pattern.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
 string
 -
 map
 -
-Pattern.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
-
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Main.h
-map
+vector
 -
-Pattern.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
+regex
+-
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
 string
+-
+vector
 -
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/main.cpp
@@ -37,6 +41,4 @@ regex
 -
 Lexer.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
-Main.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Main.h
 

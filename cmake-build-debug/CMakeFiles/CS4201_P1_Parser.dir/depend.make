@@ -6,7 +6,6 @@ CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: ../Lexer.h
 CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: ../Pattern.h
 
 CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../Lexer.h
-CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../Main.h
 CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../Pattern.h
 CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../main.cpp
 

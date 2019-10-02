@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 namespace Pattern {
     enum class TokenType {
@@ -26,6 +27,7 @@ namespace Pattern {
         RELOP,
         ARITH,
         SEMI,
+        COMMA,
         INT,
         REAL
     };
