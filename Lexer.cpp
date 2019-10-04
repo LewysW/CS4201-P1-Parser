@@ -4,7 +4,8 @@
 
 using Pattern::TokenType;
 using std::string;
-using std::regex;
+using std::cout;
+using std::endl;
 
 Lexer::Lexer(string const& file) : fileContent(readFile(file))
 {
@@ -39,70 +40,60 @@ std::string Lexer::readFile(string const& file) const {
  */
 //TODO - handle errors with comments, string literals, and OTHER tokens
 std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
-    std::vector<std::pair<TokenType, string>> symbols = match(false);
-    std::vector<std::pair<TokenType, string>> identifiers = match(true);
+    int lexemeStart = 0, lookahead = 0;
+    //size_t len = getFileContent().length();
+    //std::string content = getFileContent();
+    std::string content = "<=>:;-/*+";
+    size_t len = content.length();
     std::vector<std::pair<TokenType, string>> tokens;
+    Pattern::TokenType token;
+    cout << content << endl;
+    while (lexemeStart < len) {
+        std::string subStr = content.substr(lexemeStart, 1);
 
-    int index = 0;
-    for (std::pair<TokenType, string> & p : identifiers) {
-        if (p.second == symbols[index].second) {
-            tokens.emplace_back(symbols[index]);
-            index++;
-        } else {
-            tokens.emplace_back(p);
+        //Checks for single character operators
+        if (static_cast<int>(token = isOperator(subStr))) {
+            tokens.emplace_back(std::make_pair(token, ""));
         }
 
-        std::cout << TOKEN_STRINGS[static_cast<int>(tokens.back().first)] << ": " << tokens.back().second << std::endl;
+        lexemeStart++;
+    }
+
+    for (std::pair<TokenType, string> p : tokens) {
+        cout << TOKEN_STRINGS[static_cast<int>(p.first)] << " ";
     }
 
     return tokens;
 }
 
-/**
- * Uses regex iterator to match a map of tokens with the content of the provided file
- * @param matchID - whether to match identifiers
- * @return list of tokens idenfitifed using regex
- */
-std::vector<std::pair<TokenType, string>> Lexer::match(bool matchID) const {
-    std::map<TokenType, string> regPatterns = createTokenMap();
-
-    /**
-     * https://stackoverflow.com/questions/34229328/writing-a-very-simple-lexical-analyser-in-c
-     */
-    std::map<size_t, std::pair<string, TokenType>> matches;
-    std::vector<std::pair<TokenType, string>> tokens;
-
-
-    //Iterates over each pattern in the list of regex patterns
-    for (auto pat = regPatterns.begin(); pat != regPatterns.end(); ++pat) {
-        if (pat->first != TokenType::ID || matchID) {
-            //Initialises a regex object with the extended regex to ensure the correct behaviour
-            regex r(pat->second, regex::extended);
-
-            //Initialises a regex iterator which identifies the valid tokens of the current pattern
-            auto words_begin = std::sregex_iterator(getFileContent().begin(), getFileContent().end(), r);
-            auto words_end = std::sregex_iterator();
-
-            //Adds all of the valid tokens of the current pattern to the map
-            for (auto it = words_begin; it != words_end; ++it) {
-                matches[it->position()] = std::make_pair(it->str(), pat->first);
-            }
-        }
+Pattern::TokenType Lexer::isOperator(std::string& s) const {
+    if (s == "<") {
+        return TokenType::LT;
+    } else if (s == ">") {
+        return TokenType::GT;
+    } else if (s == "=") {
+        return TokenType::EQ;
+    } else if (s == ":") {
+        return TokenType::COL;
+    } else if (s == ";") {
+        return TokenType::SEMI;
+    } else if (s == "+") {
+        return TokenType::PLUS;
+    } else if (s == "-") {
+        return TokenType::MINUS;
+    } else if (s == "/") {
+        return TokenType::DIVIDE;
+    } else if (s == "*") {
+        return TokenType::MULTIPLY;
+    } else {
+        return TokenType::INVALID;
     }
-
-    //Assigns tokens to vector
-    for (auto token = matches.begin(); token != matches.end(); token++) {
-        tokens.emplace_back(std::make_pair(token->second.second, token->second.first));
-        //std::cout << TOKEN_STRINGS[static_cast<int>(tokens.back().first)] << ": " << tokens.back().second << std::endl;
-    }
-
-    return tokens;
 }
 
 /**
  * Creates a map defining the tokens to be lexed and their corresponding regex
  * @return map of tokens/regex
- */
+ *//*
 std::map<TokenType, string> Lexer::createTokenMap() const {
     std::map<TokenType, std::string> patterns {
             {TokenType::BOOL, "true|false"},
@@ -140,7 +131,7 @@ std::map<TokenType, string> Lexer::createTokenMap() const {
     };
 
     return patterns;
-}
+}*/
 
 const string &Lexer::getFileContent() const {
     return fileContent;

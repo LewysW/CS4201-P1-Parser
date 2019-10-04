@@ -4,35 +4,19 @@
 
 namespace Pattern {
     enum class TokenType {
-        BOOL,
-        IF,
-        THEN,
-        ELSE,
-        WHILE,
-        PRINT,
-        PRINTLN,
-        VAR,
-        GET,
-        LOGICAL,
-        PROGRAM,
-        PROCEDURE,
-        RETURN,
-        BEGIN,
-        END,
-        ID,
-        COMMENT,
-        LPAREN,
-        RPAREN,
-        DOUBLEQUOTE,
-        SINGLEQUOTE,
-        ASSIGNMENT,
-        RELOP,
-        ARITH,
-        SEMI,
-        COMMA,
-        INT,
-        REAL,
-        OTHER
+        LT, //Less than
+        GT, //Greater than
+        EQ, //Equal to (assignment)
+        DEQ, //Double equal to
+        LTE, //Less than equal to
+        GTE, //Greater than equal to
+        COL, //Colon
+        SEMI, //Semi colon
+        PLUS, // +
+        MINUS, // -
+        DIVIDE, // '/'
+        MULTIPLY, // *
+        INVALID
     };
 }
 

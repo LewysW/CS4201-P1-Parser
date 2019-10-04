@@ -4,17 +4,12 @@
 #include <map>
 #include <vector>
 #include <regex>
-#define TOKEN_NUM 29
-#define NULL_CHAR 0
-#define BACKSPACE 9
-#define HORIZONTAL_TAB 9
-#define VERTICAL_TAB 11
-#define CARRIAGE_RETURN 13
-#define SPACE 32
+#define TOKEN_NUM 13
 
 class Lexer {
 private:
     std::string fileContent;
+    std::map<Pattern::TokenType, std::string> tokenTypes;
 public:
     explicit Lexer(std::string const& file);
 
@@ -22,9 +17,9 @@ public:
 
     std::vector<std::pair<Pattern::TokenType, std::string>> tokenize() const;
 
-    std::vector<std::pair<Pattern::TokenType, std::string>> match(bool matchID) const;
+    Pattern::TokenType isOperator(std::string& chars) const;
 
-    std::map<Pattern::TokenType, std::string> createTokenMap() const;
+    //std::map<Pattern::TokenType, std::string> createTokenMap() const;
 
     const std::string &getFileContent() const;
 
@@ -32,35 +27,19 @@ public:
 
     //Allows for printing of token type strings
     const char* TOKEN_STRINGS[TOKEN_NUM] = {
-            "BOOL",
-            "IF",
-            "THEN",
-            "ELSE",
-            "WHILE",
-            "PRINT",
-            "PRINTLN",
-            "VAR",
-            "GET",
-            "LOGICAL",
-            "PROGRAM",
-            "PROCEDURE",
-            "RETURN",
-            "BEGIN",
-            "END",
-            "ID",
-            "COMMENT",
-            "LPAREN",
-            "RPAREN",
-            "DOUBLEQUOTE",
-            "SINGLEQUOTE",
-            "ASSIGNMENT",
-            "RELOP",
-            "ARITH",
-            "SEMI",
-            "COMMA",
-            "INT",
-            "REAL",
-            "OTHER"
+            "LT", //Less than
+            "GT", //Greater than
+            "EQ", //Equal to (assignment)
+            "DEQ", //Double equal to
+            "LTE", //Less than equal to
+            "GTE", //Greater than equal to
+            "COL", //Colon
+            "SEMI", //Semi colon
+            "PLUS", // +
+            "MINUS", // -
+            "DIVIDE", // '/'
+            "MULTIPLY", // *
+            "INVALID"
     };
 };
 
