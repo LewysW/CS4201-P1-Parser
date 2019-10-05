@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include <regex>
-#define TOKEN_NUM 16
+#define TOKEN_NUM 36
 
 class Lexer {
 private:
@@ -22,6 +22,8 @@ public:
     Pattern::TokenType isStrLiteral(std::string& s, int& tokLen) const;
 
     Pattern::TokenType isOperator(std::string& stream, int& tokLen) const;
+
+    Pattern::TokenType isKeyword(std::string& stream, int& tokLen) const;
 
     const std::string &getFileContent() const;
 
@@ -44,7 +46,27 @@ public:
             "LPAREN",
             "RPAREN",
             "COMMENT",
-            "NEWLINE"
+            "COMMA",
+            "BEGIN",
+            "END",
+            "PROGRAM",
+            "PROCEDURE",
+            "RETURN",
+            "IF",
+            "THEN",
+            "ELSE",
+            "WHILE",
+            "PRINT",
+            "PRINTLN",
+            "VAR",
+            "GET",
+            "AND",
+            "OR",
+            "NOT",
+            "TRUE",
+            "FALSE",
+            "NEWLINE",
+            "WHITESPACE"
     };
 };
 

@@ -19,7 +19,27 @@ namespace Pattern {
         LPAREN, // (
         RPAREN, // )
         COMMENT, // coments {- -}
-        NEWLINE // \n
+        COMMA,
+        BEGIN,
+        END,
+        PROGRAM,
+        PROCEDURE,
+        RETURN,
+        IF,
+        THEN,
+        ELSE,
+        WHILE,
+        PRINT,
+        PRINTLN,
+        VAR,
+        GET,
+        AND,
+        OR,
+        NOT,
+        TRUE,
+        FALSE,
+        NEWLINE, // \n
+        WHITESPACE
     };
 }
 

@@ -50,30 +50,31 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
     std::vector<std::pair<TokenType, string>> tokens;
     Pattern::TokenType token;
 
-    //TODO handle comments and string literals - ADD STATE TO KNOW WHEN IN A LITERAL OR COMMENT
     while (lexemeStart < len - 1) {
         try {
             std::string subStr = content.substr(lexemeStart, len);
 
             //Parses comments
-            if (static_cast<int>(token = isComment(subStr, tokLen, lineCount))) {
+            if ((token = isComment(subStr, tokLen, lineCount)) != TokenType::NONE) {
                 tokens.emplace_back(std::make_pair(token, subStr.substr(0, tokLen)));
             //Parses string literals
-            } else if (static_cast<int>(token = isStrLiteral(subStr, tokLen))) {
+            } else if ((token = isStrLiteral(subStr, tokLen)) != TokenType::NONE) {
                 tokens.emplace_back(std::make_pair(token, subStr.substr(0, tokLen)));
             //Parses operators
-            } else if (static_cast<int>(token = isOperator(subStr, tokLen))) {
+            } else if ((token = isOperator(subStr, tokLen)) != TokenType::NONE) {
                 //If token is not a newline and not in a comment or string literal
-                if (token != TokenType::NEWLINE) {
+                if (token != TokenType::NEWLINE && token != TokenType::WHITESPACE) {
                     tokens.emplace_back(std::make_pair(token, ""));
                 } else if (token == TokenType::NEWLINE) {
                     lineCount++;
                     charCount = 0;
                 }
+            } else {
+                //TODO handle keywords
+                //TODO handle numbers
+                //TODO handle Identifiers
             }
-            //TODO handle keywords
-            //TODO handle numbers
-            //TODO handle Identifiers
+
             //Increments lexemeStart to the beginning of the current lexeme to parse
             lexemeStart += tokLen;
 
@@ -133,7 +134,7 @@ Pattern::TokenType Lexer::isStrLiteral(std::string& s, int& tokLen) const {
             tokLen++;
         }
 
-        throw LexException("Open string literal");
+        throw LexException("Unclosed string literal");
     } else {
         return TokenType::NONE;
     }
@@ -183,9 +184,18 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
             return TokenType::RPAREN;
         case '\n':
             return TokenType::NEWLINE;
+        case '\t':
+        case ' ':
+            return TokenType::WHITESPACE;
+        case ',':
+            return TokenType::COMMA;
         default:
             return TokenType::NONE;
     }
+}
+
+Pattern::TokenType Lexer::isKeyword(std::string& stream, int& tokLen) const {
+
 }
 
 /**
