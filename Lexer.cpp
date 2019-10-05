@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "Lexer.h"
+#include "LexException.h"
 
 using Pattern::TokenType;
 using std::string;
@@ -38,25 +39,35 @@ std::string Lexer::readFile(string const& file) const {
  * Generates a list of tokens from the file of the Lexer
  * @return list of tokens
  */
-//TODO - handle errors with comments, string literals, and OTHER tokens
 std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
-    int lexemeStart = 0, lookahead = 0;
-    //size_t len = getFileContent().length();
-    //std::string content = getFileContent();
-    std::string content = "<=>:;-/*+";
+    unsigned long lexemeStart = 0;
+    unsigned long newLines = 0;
+    int tokLen = 1;
+    std::string content = getFileContent();
     size_t len = content.length();
     std::vector<std::pair<TokenType, string>> tokens;
     Pattern::TokenType token;
-    cout << content << endl;
-    while (lexemeStart < len) {
-        std::string subStr = content.substr(lexemeStart, 1);
 
-        //Checks for single character operators
-        if (static_cast<int>(token = isOperator(subStr))) {
-            tokens.emplace_back(std::make_pair(token, ""));
+    //TODO handle whitespace (increment newline count and reset character count on new line)
+    //TODO handle comments and string literals - ADD STATE TO KNOW WHEN IN A LITERAL OR COMMENT
+    //TODO handle keywords
+    //TODO handle numbers
+    //TODO handle Identifiers
+    while (lexemeStart < len - 1) {
+        try {
+            std::string subStr = content.substr(lexemeStart, len);
+
+            //Checks for single character operators
+            if (static_cast<int>(token = isOperator(subStr, tokLen))) {
+                tokens.emplace_back(std::make_pair(token, ""));
+                cout << TOKEN_STRINGS[static_cast<int>(token)] << endl;
+            }
+
+            lexemeStart += tokLen;
+        } catch (LexException& e) {
+            cout << "Error: " << e.what() << ", line " << newLines + 1 << ", column " << lexemeStart;
+            exit(1);
         }
-
-        lexemeStart++;
     }
 
     for (std::pair<TokenType, string> p : tokens) {
@@ -66,27 +77,66 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
     return tokens;
 }
 
-Pattern::TokenType Lexer::isOperator(std::string& s) const {
-    if (s == "<") {
-        return TokenType::LT;
-    } else if (s == ">") {
-        return TokenType::GT;
-    } else if (s == "=") {
-        return TokenType::EQ;
-    } else if (s == ":") {
-        return TokenType::COL;
-    } else if (s == ";") {
-        return TokenType::SEMI;
-    } else if (s == "+") {
-        return TokenType::PLUS;
-    } else if (s == "-") {
-        return TokenType::MINUS;
-    } else if (s == "/") {
-        return TokenType::DIVIDE;
-    } else if (s == "*") {
-        return TokenType::MULTIPLY;
-    } else {
-        return TokenType::INVALID;
+Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
+    std::string sub = s.substr(0, 2);
+    char first = sub.at(0);
+    char second = sub.at(1);
+    tokLen = 1;
+
+    switch (first) {
+        case '<':
+            if (second == '=') {
+                tokLen++;
+                return TokenType::LTE;
+            } else {
+                return TokenType::LT;
+            }
+        case '>':
+            if (second == '=') {
+                tokLen++;
+                return TokenType::GTE;
+            } else {
+                return TokenType::GT;
+            }
+        case ':':
+            if (second == '=') {
+                tokLen++;
+                return TokenType::ASSIGN;
+            } else {
+                throw LexException("Invalid token ':'");
+            }
+        case ';':
+            return TokenType::SEMI;
+        case '+':
+            return TokenType::PLUS;
+        case '-':
+            if (second == '}') {
+                tokLen++;
+                return TokenType::CLOSE_COMMENT;
+            } else {
+                return TokenType::MINUS;
+            }
+        case '/':
+            return TokenType::DIVIDE;
+        case '*':
+            return TokenType::MULTIPLY;
+        case '\'':
+            return TokenType::QUOTE;
+        case '\"':
+            return TokenType::DQUOTE;
+        case '(':
+            return TokenType::LPAREN;
+        case ')':
+            return TokenType::RPAREN;
+        case '{':
+            if (second == '-') {
+                tokLen++;
+                return TokenType::OPEN_COMMENT;
+            } else {
+                throw LexException("Invalid token: '{'");
+            }
+        default:
+            return TokenType::NONE;
     }
 }
 

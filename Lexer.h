@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include <regex>
-#define TOKEN_NUM 13
+#define TOKEN_NUM 17
 
 class Lexer {
 private:
@@ -17,9 +17,7 @@ public:
 
     std::vector<std::pair<Pattern::TokenType, std::string>> tokenize() const;
 
-    Pattern::TokenType isOperator(std::string& chars) const;
-
-    //std::map<Pattern::TokenType, std::string> createTokenMap() const;
+    Pattern::TokenType isOperator(std::string& stream, int& tokLen) const;
 
     const std::string &getFileContent() const;
 
@@ -27,19 +25,23 @@ public:
 
     //Allows for printing of token type strings
     const char* TOKEN_STRINGS[TOKEN_NUM] = {
+            "NONE",
             "LT", //Less than
-            "GT", //Greater than
-            "EQ", //Equal to (assignment)
-            "DEQ", //Double equal to
             "LTE", //Less than equal to
+            "GT", //Greater than
             "GTE", //Greater than equal to
-            "COL", //Colon
+            "ASSIGN", //assignment
             "SEMI", //Semi colon
             "PLUS", // +
             "MINUS", // -
             "DIVIDE", // '/'
             "MULTIPLY", // *
-            "INVALID"
+            "QUOTE",
+            "DQUOTE",
+            "LPAREN",
+            "RPAREN",
+            "OPEN_COMMENT",
+            "CLOSE_COMMENT"
     };
 };
 

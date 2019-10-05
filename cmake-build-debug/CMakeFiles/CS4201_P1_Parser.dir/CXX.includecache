@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/LexException.h
+iostream
+-
+exception
+-
+
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.cpp
 iostream
 -
@@ -13,6 +19,8 @@ fstream
 -
 Lexer.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
+LexException.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/LexException.h
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
 Pattern.h

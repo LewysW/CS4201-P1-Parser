@@ -4,19 +4,23 @@
 
 namespace Pattern {
     enum class TokenType {
+        NONE,
         LT, //Less than
-        GT, //Greater than
-        EQ, //Equal to (assignment)
-        DEQ, //Double equal to
         LTE, //Less than equal to
+        GT, //Greater than
         GTE, //Greater than equal to
-        COL, //Colon
+        ASSIGN, //assignment
         SEMI, //Semi colon
         PLUS, // +
         MINUS, // -
         DIVIDE, // '/'
         MULTIPLY, // *
-        INVALID
+        QUOTE, // '
+        DQUOTE, // "
+        LPAREN,
+        RPAREN,
+        OPEN_COMMENT,
+        CLOSE_COMMENT
     };
 }
 
