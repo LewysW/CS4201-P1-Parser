@@ -8,7 +8,8 @@ using std::string;
 using std::cout;
 using std::endl;
 
-Lexer::Lexer(string const& file) : fileContent(readFile(file))
+Lexer::Lexer(string const& file) :
+        fileContent(readFile(file))
 {
 }
 
@@ -41,40 +42,102 @@ std::string Lexer::readFile(string const& file) const {
  */
 std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
     unsigned long lexemeStart = 0;
-    unsigned long newLines = 0;
+    unsigned long lineCount = 1;
+    unsigned long charCount = 1;
     int tokLen = 1;
     std::string content = getFileContent();
     size_t len = content.length();
     std::vector<std::pair<TokenType, string>> tokens;
     Pattern::TokenType token;
 
-    //TODO handle whitespace (increment newline count and reset character count on new line)
     //TODO handle comments and string literals - ADD STATE TO KNOW WHEN IN A LITERAL OR COMMENT
-    //TODO handle keywords
-    //TODO handle numbers
-    //TODO handle Identifiers
     while (lexemeStart < len - 1) {
         try {
             std::string subStr = content.substr(lexemeStart, len);
 
-            //Checks for single character operators
-            if (static_cast<int>(token = isOperator(subStr, tokLen))) {
-                tokens.emplace_back(std::make_pair(token, ""));
+            //Parses comments
+            if (static_cast<int>(token = isComment(subStr, tokLen))) {
+                tokens.emplace_back(std::make_pair(token, subStr.substr(0, tokLen)));
                 cout << TOKEN_STRINGS[static_cast<int>(token)] << endl;
+            //Parses string literals
+            } else if (static_cast<int>(token = isStrLiteral(subStr, tokLen))) {
+                tokens.emplace_back(std::make_pair(token, subStr.substr(0, tokLen)));
+                cout << TOKEN_STRINGS[static_cast<int>(token)] << endl;
+            //Parses operators
+            } else if (static_cast<int>(token = isOperator(subStr, tokLen))) {
+                //If token is not a newline and not in a comment or string literal
+                if (token != TokenType::NEWLINE) {
+                    tokens.emplace_back(std::make_pair(token, ""));
+                    cout << TOKEN_STRINGS[static_cast<int>(token)] << endl;
+                } else if (token == TokenType::NEWLINE) {
+                    lineCount++;
+                    charCount = 0;
+                }
             }
-
+            //TODO handle keywords
+            //TODO handle numbers
+            //TODO handle Identifiers
+            //Increments lexemeStart to the beginning of the current lexeme to parse
             lexemeStart += tokLen;
+
+            //Increments the char count of the current line
+            charCount += tokLen;
         } catch (LexException& e) {
-            cout << "Error: " << e.what() << ", line " << newLines + 1 << ", column " << lexemeStart;
+            cout << "Error: " << e.what() << ", line " << lineCount << ", column " << charCount;
             exit(1);
         }
     }
 
     for (std::pair<TokenType, string> p : tokens) {
-        cout << TOKEN_STRINGS[static_cast<int>(p.first)] << " ";
+        cout << TOKEN_STRINGS[static_cast<int>(p.first)] << ": " << p.second << endl;
     }
 
     return tokens;
+}
+
+Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen) const {
+    unsigned long len = s.length();
+    tokLen = 0;
+
+    if (len >= 2 && s.substr(0, 2) == "{-") {
+        tokLen += 2;
+
+        while (tokLen < len - 2) {
+            if (s.substr(tokLen, 2) == "-}") {
+                tokLen += 2;
+                return TokenType::COMMENT;
+            }
+
+            tokLen++;
+        }
+
+        throw LexException("Unclosed comment");
+    } else {
+        return TokenType::NONE;
+    }
+}
+
+Pattern::TokenType Lexer::isStrLiteral(std::string& s, int& tokLen) const {
+    unsigned long len = s.length();
+    tokLen = 0;
+    std::string symbol = s.substr(0 , 1);
+
+    if (symbol == "\"" || symbol == "\'") {
+        tokLen++;
+
+        while (tokLen < len - 1) {
+            if (s.substr(tokLen, 1) == symbol) {
+                tokLen++;
+                return TokenType::STRING;
+            }
+
+            tokLen++;
+        }
+
+        throw LexException("Open string literal");
+    } else {
+        return TokenType::NONE;
+    }
 }
 
 Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
@@ -110,31 +173,17 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
         case '+':
             return TokenType::PLUS;
         case '-':
-            if (second == '}') {
-                tokLen++;
-                return TokenType::CLOSE_COMMENT;
-            } else {
-                return TokenType::MINUS;
-            }
+            return TokenType::MINUS;
         case '/':
             return TokenType::DIVIDE;
         case '*':
             return TokenType::MULTIPLY;
-        case '\'':
-            return TokenType::QUOTE;
-        case '\"':
-            return TokenType::DQUOTE;
         case '(':
             return TokenType::LPAREN;
         case ')':
             return TokenType::RPAREN;
-        case '{':
-            if (second == '-') {
-                tokLen++;
-                return TokenType::OPEN_COMMENT;
-            } else {
-                throw LexException("Invalid token: '{'");
-            }
+        case '\n':
+            return TokenType::NEWLINE;
         default:
             return TokenType::NONE;
     }

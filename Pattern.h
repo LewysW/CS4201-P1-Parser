@@ -4,7 +4,7 @@
 
 namespace Pattern {
     enum class TokenType {
-        NONE,
+        NONE = 0,
         LT, //Less than
         LTE, //Less than equal to
         GT, //Greater than
@@ -15,12 +15,11 @@ namespace Pattern {
         MINUS, // -
         DIVIDE, // '/'
         MULTIPLY, // *
-        QUOTE, // '
-        DQUOTE, // "
-        LPAREN,
-        RPAREN,
-        OPEN_COMMENT,
-        CLOSE_COMMENT
+        STRING, // String literals
+        LPAREN, // (
+        RPAREN, // )
+        COMMENT, // coments {- -}
+        NEWLINE // \n
     };
 }
 
