@@ -56,19 +56,16 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
             std::string subStr = content.substr(lexemeStart, len);
 
             //Parses comments
-            if (static_cast<int>(token = isComment(subStr, tokLen))) {
+            if (static_cast<int>(token = isComment(subStr, tokLen, lineCount))) {
                 tokens.emplace_back(std::make_pair(token, subStr.substr(0, tokLen)));
-                cout << TOKEN_STRINGS[static_cast<int>(token)] << endl;
             //Parses string literals
             } else if (static_cast<int>(token = isStrLiteral(subStr, tokLen))) {
                 tokens.emplace_back(std::make_pair(token, subStr.substr(0, tokLen)));
-                cout << TOKEN_STRINGS[static_cast<int>(token)] << endl;
             //Parses operators
             } else if (static_cast<int>(token = isOperator(subStr, tokLen))) {
                 //If token is not a newline and not in a comment or string literal
                 if (token != TokenType::NEWLINE) {
                     tokens.emplace_back(std::make_pair(token, ""));
-                    cout << TOKEN_STRINGS[static_cast<int>(token)] << endl;
                 } else if (token == TokenType::NEWLINE) {
                     lineCount++;
                     charCount = 0;
@@ -95,7 +92,7 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
     return tokens;
 }
 
-Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen) const {
+Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen, unsigned long& lineCount) const {
     unsigned long len = s.length();
     tokLen = 0;
 
@@ -103,7 +100,9 @@ Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen) const {
         tokLen += 2;
 
         while (tokLen < len - 2) {
-            if (s.substr(tokLen, 2) == "-}") {
+            if (s[tokLen + 1] == '\n') lineCount++;
+
+            if (s.substr(static_cast<unsigned long>(tokLen), 2) == "-}") {
                 tokLen += 2;
                 return TokenType::COMMENT;
             }
@@ -126,7 +125,7 @@ Pattern::TokenType Lexer::isStrLiteral(std::string& s, int& tokLen) const {
         tokLen++;
 
         while (tokLen < len - 1) {
-            if (s.substr(tokLen, 1) == symbol) {
+            if (s.substr(static_cast<unsigned long>(tokLen), 1) == symbol) {
                 tokLen++;
                 return TokenType::STRING;
             }

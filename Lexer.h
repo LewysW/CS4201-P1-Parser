@@ -17,7 +17,7 @@ public:
 
     std::vector<std::pair<Pattern::TokenType, std::string>> tokenize() const;
 
-    Pattern::TokenType isComment(std::string& s, int& tokLen) const;
+    Pattern::TokenType isComment(std::string& s, int& tokLen, unsigned long& lineCount) const;
 
     Pattern::TokenType isStrLiteral(std::string& s, int& tokLen) const;
 
