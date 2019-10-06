@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include <regex>
-#define TOKEN_NUM 38
+#define TOKEN_NUM 39
 
 class Lexer {
 private:
@@ -25,6 +25,8 @@ public:
     Pattern::TokenType isKeyword(std::string& s, int& tokLen, std::map<std::string, Pattern::TokenType> const& keywords) const;
 
     Pattern::TokenType isNumeric(std::string& s, int& tokLen) const;
+
+    Pattern::TokenType isIdentifier(std::string& s, int& tokLen) const;
 
     std::map<std::string, Pattern::TokenType> getKeywords() const;
 
@@ -73,7 +75,8 @@ public:
             "NEWLINE",
             "WHITESPACE",
             "REAL",
-            "INT"
+            "INT",
+            "ID"
     };
 };
 

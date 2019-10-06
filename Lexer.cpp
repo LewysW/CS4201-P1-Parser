@@ -89,13 +89,17 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
             } else {
                 std::string lexeme = buffer(subStr);
 
+                //Parses keywords
                 if ((token = isKeyword(lexeme, tokLen, keywords)) != TokenType::NONE) {
                     tokens.emplace_back(std::make_pair(token, ""));
+                //Parses ints or real numbers
                 } else if ((token = isNumeric(lexeme, tokLen)) != TokenType::NONE) {
                     tokens.emplace_back(std::make_pair(token, lexeme));
+                } else if ((token = isIdentifier(lexeme, tokLen)) != TokenType::NONE) {
+                    tokens.emplace_back(std::make_pair(token, lexeme));
+                } else {
+                    throw LexException("Invalid token");
                 }
-                //TODO handle numbers
-                //TODO handle Identifiers
             }
 
             //Increments lexemeStart to the beginning of the current lexeme to parse
@@ -277,6 +281,19 @@ Pattern::TokenType Lexer::isNumeric(string& s, int& tokLen) const {
     }
 
     return isReal ? TokenType::REAL : TokenType::INT;
+}
+
+Pattern::TokenType Lexer::isIdentifier(string& s, int& tokLen) const {
+    string id = "([a-zA-Z_]+)([a-zA-Z_0-9])*";
+    std::regex pattern(id);
+
+    tokLen = static_cast<int>(s.length());
+
+    if (std::regex_match(s, pattern)) {
+        return TokenType::ID;
+    } else {
+        return TokenType::NONE;
+    }
 }
 
 

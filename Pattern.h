@@ -41,7 +41,8 @@ namespace Pattern {
         NEWLINE, // \n
         WHITESPACE,
         REAL,
-        INT
+        INT,
+        ID
     };
 }
 
