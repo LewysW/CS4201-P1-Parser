@@ -13,6 +13,10 @@ Lexer::Lexer(string const& file) :
 {
 }
 
+bool operator!(TokenType t) {
+    return (t == TokenType::NONE);
+}
+
 /**
  * Reads file and converts to string
  * @param file - to read
@@ -69,7 +73,7 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
                     lineCount++;
                     charCount = 0;
                 }
-            } else {
+            } else if ((token = isKeyword(subStr, tokLen)) != TokenType::NONE) {
                 //TODO handle keywords
                 //TODO handle numbers
                 //TODO handle Identifiers
@@ -182,6 +186,7 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
             return TokenType::LPAREN;
         case ')':
             return TokenType::RPAREN;
+        case '\r':
         case '\n':
             return TokenType::NEWLINE;
         case '\t':
@@ -195,7 +200,28 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
 }
 
 Pattern::TokenType Lexer::isKeyword(std::string& stream, int& tokLen) const {
+    unsigned long len = stream.length();
+    unsigned long pos = 1;
+    unsigned long lineCount = 0;
+    std::string buffer;
+    std::string lookahead;
+    while (pos < len - 1) {
+        pos++;
+        buffer = stream.substr(0, pos);
+        lookahead = buffer.substr(buffer.length() - 2, 2);
 
+        if (isOperator(lookahead, tokLen) != TokenType::NONE
+            || isComment(lookahead, tokLen, lineCount) != TokenType::NONE
+            || isStrLiteral(lookahead, tokLen) != TokenType::NONE) {
+
+            buffer = buffer.substr(0, buffer.length() - 2);
+            break;
+        }
+    }
+
+    cout << "--------------------Buffer-------------------:" << buffer << endl;
+
+    return TokenType::NONE;
 }
 
 /**
