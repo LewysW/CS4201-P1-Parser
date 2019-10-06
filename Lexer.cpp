@@ -10,12 +10,19 @@ using std::endl;
 using std::map;
 
 Lexer::Lexer(string const& file) :
-        fileContent(readFile(file))
+        fileContent(readFile(file)),
+        tokenList(tokenize())
 {
 }
 
-bool operator!(TokenType t) {
-    return (t == TokenType::NONE);
+void Lexer::printTokens() {
+    std::string tokStr;
+
+    for (std::pair<TokenType, string> p : getTokenList()) {
+        tokStr = TOKEN_STRINGS[static_cast<int>(p.first)];
+        tokStr += (p.second.empty()) ? "" : (": " + p.second);
+        cout << tokStr << endl;
+    }
 }
 
 /**
@@ -112,11 +119,6 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
             exit(1);
         }
     }
-
-    for (std::pair<TokenType, string> p : tokens) {
-        cout << TOKEN_STRINGS[static_cast<int>(p.first)] << ": " << p.second << endl;
-    }
-
     return tokens;
 }
 
@@ -220,6 +222,13 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
             } else {
                 return TokenType::GT;
             }
+        case '=':
+            if (second == '=') {
+                tokLen++;
+                return TokenType::EQ;
+            } else {
+                throw LexException("Invalid token '='");
+            }
         case ':':
             if (second == '=') {
                 tokLen++;
@@ -265,22 +274,16 @@ Pattern::TokenType Lexer::isKeyword(string& s, int& tokLen, map<string, TokenTyp
 }
 
 Pattern::TokenType Lexer::isNumeric(string& s, int& tokLen) const {
-    bool isReal = false;
-
     tokLen = static_cast<int>(s.length());
 
-    //Checks for valid real or integer number
+    //Checks for valid number
     for (char c : s) {
-        if ((isReal && c =='.')) {
-            return TokenType::NONE;
-        } else if (!isReal && c == '.') {
-            isReal = true;
-        } else if (c < '0' || c > '9') {
+        if (c < '0' || c > '9') {
             return TokenType::NONE;
         }
     }
 
-    return isReal ? TokenType::REAL : TokenType::INT;
+    return TokenType::NUM;
 }
 
 Pattern::TokenType Lexer::isIdentifier(string& s, int& tokLen) const {
@@ -330,7 +333,7 @@ const string &Lexer::getFileContent() const {
     return fileContent;
 }
 
-void Lexer::setFileContent(const string &fileContent) {
-    Lexer::fileContent = fileContent;
+const std::vector<std::pair<TokenType, string>> &Lexer::getTokenList() const {
+    return tokenList;
 }
 

@@ -9,6 +9,7 @@ namespace Pattern {
         LTE, //Less than equal to
         GT, //Greater than
         GTE, //Greater than equal to
+        EQ, //Equality
         ASSIGN, //assignment
         SEMI, //Semi colon
         PLUS, // +
@@ -40,8 +41,7 @@ namespace Pattern {
         FALSE,
         NEWLINE, // \n
         WHITESPACE,
-        REAL,
-        INT,
+        NUM,
         ID
     };
 }

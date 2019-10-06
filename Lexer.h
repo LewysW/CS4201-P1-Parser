@@ -9,8 +9,11 @@
 class Lexer {
 private:
     std::string fileContent;
+    std::vector<std::pair<Pattern::TokenType, std::string>> tokenList;
 public:
     explicit Lexer(std::string const& file);
+
+    void printTokens();
 
     std::string readFile(std::string const& file) const;
 
@@ -34,7 +37,7 @@ public:
 
     const std::string &getFileContent() const;
 
-    void setFileContent(const std::string &fileContent);
+    const std::vector<std::pair<Pattern::TokenType, std::string>> &getTokenList() const;
 
     //Allows for printing of token type strings
     const char* TOKEN_STRINGS[TOKEN_NUM] = {
@@ -43,39 +46,39 @@ public:
             "LTE", //Less than equal to
             "GT", //Greater than
             "GTE", //Greater than equal to
+            "EQ", //Equal to
             "ASSIGN", //assignment
             "SEMI", //Semi colon
             "PLUS", // +
             "MINUS", // -
             "DIVIDE", // '/'
             "MULTIPLY", // *
-            "STRING",
-            "LPAREN",
-            "RPAREN",
-            "COMMENT",
-            "COMMA",
-            "BEGIN",
-            "END",
-            "PROGRAM",
-            "PROCEDURE",
-            "RETURN",
-            "IF",
-            "THEN",
-            "ELSE",
-            "WHILE",
-            "PRINT",
-            "PRINTLN",
-            "VAR",
-            "GET",
-            "AND",
-            "OR",
-            "NOT",
-            "TRUE",
-            "FALSE",
-            "NEWLINE",
-            "WHITESPACE",
-            "REAL",
-            "INT",
+            "STRING", //String literal
+            "LPAREN", //Left paren
+            "RPAREN", //Right paren
+            "COMMENT", //Comment
+            "COMMA", // ,
+            "BEGIN", //begin
+            "END", //end
+            "PROGRAM", //program
+            "PROCEDURE", //procedure
+            "RETURN", //return
+            "IF", //if
+            "THEN", // then
+            "ELSE", //else
+            "WHILE", //while
+            "PRINT", //print
+            "PRINTLN", //print
+            "VAR", // var
+            "GET", // get
+            "AND", // and
+            "OR", // or
+            "NOT", // not
+            "TRUE", // true
+            "FALSE", // false
+            "NEWLINE", //\n
+            "WHITESPACE", //\r \s \t
+            "NUM", //sequence of digits
             "ID"
     };
 };
