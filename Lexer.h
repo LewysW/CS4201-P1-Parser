@@ -4,12 +4,11 @@
 #include <map>
 #include <vector>
 #include <regex>
-#define TOKEN_NUM 36
+#define TOKEN_NUM 38
 
 class Lexer {
 private:
     std::string fileContent;
-    std::map<Pattern::TokenType, std::string> tokenTypes;
 public:
     explicit Lexer(std::string const& file);
 
@@ -23,7 +22,13 @@ public:
 
     Pattern::TokenType isOperator(std::string& stream, int& tokLen) const;
 
-    Pattern::TokenType isKeyword(std::string& stream, int& tokLen) const;
+    Pattern::TokenType isKeyword(std::string& s, int& tokLen, std::map<std::string, Pattern::TokenType> const& keywords) const;
+
+    Pattern::TokenType isNumeric(std::string& s, int& tokLen) const;
+
+    std::map<std::string, Pattern::TokenType> getKeywords() const;
+
+    std::string buffer(std::string& stream) const;
 
     const std::string &getFileContent() const;
 
@@ -66,7 +71,9 @@ public:
             "TRUE",
             "FALSE",
             "NEWLINE",
-            "WHITESPACE"
+            "WHITESPACE",
+            "REAL",
+            "INT"
     };
 };
 

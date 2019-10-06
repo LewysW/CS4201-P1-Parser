@@ -7,6 +7,7 @@ using Pattern::TokenType;
 using std::string;
 using std::cout;
 using std::endl;
+using std::map;
 
 Lexer::Lexer(string const& file) :
         fileContent(readFile(file))
@@ -45,12 +46,24 @@ std::string Lexer::readFile(string const& file) const {
  * @return list of tokens
  */
 std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
+    //Stores a list of keywords
+    map<string, TokenType> keywords = getKeywords();
+
+    //Tracks the start of the lexeme to be parsed
     unsigned long lexemeStart = 0;
+
+    //Tracks the current line/char counts
     unsigned long lineCount = 1;
     unsigned long charCount = 1;
+
+    //Stores the length of the current token
     int tokLen = 1;
+
+    //Gets the file content and length of the file
     std::string content = getFileContent();
     size_t len = content.length();
+
+    //Stores the list of parsed tokens and the current token
     std::vector<std::pair<TokenType, string>> tokens;
     Pattern::TokenType token;
 
@@ -73,8 +86,14 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
                     lineCount++;
                     charCount = 0;
                 }
-            } else if ((token = isKeyword(subStr, tokLen)) != TokenType::NONE) {
-                //TODO handle keywords
+            } else {
+                std::string lexeme = buffer(subStr);
+
+                if ((token = isKeyword(lexeme, tokLen, keywords)) != TokenType::NONE) {
+                    tokens.emplace_back(std::make_pair(token, ""));
+                } else if ((token = isNumeric(lexeme, tokLen)) != TokenType::NONE) {
+                    tokens.emplace_back(std::make_pair(token, lexeme));
+                }
                 //TODO handle numbers
                 //TODO handle Identifiers
             }
@@ -95,6 +114,38 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
     }
 
     return tokens;
+}
+
+/**
+ * Returns a string buffer containing a delimited lexeme to be lexed
+ * @param stream - token stream
+ * @param tokLen - lenght of
+ * @return
+ */
+std::string Lexer::buffer(std::string& stream) const {
+    unsigned long len = stream.length();
+    unsigned long pos = 1;
+    unsigned long lineCount = 0;
+    int tokLen = 0;
+    std::string buffer;
+    std::string lookahead;
+
+
+    while (pos < len) {
+        pos++;
+        buffer = stream.substr(0, pos);
+        lookahead = buffer.substr(buffer.length() - 2, 2);
+
+        if (isOperator(lookahead, tokLen) != TokenType::NONE
+            || isComment(lookahead, tokLen, lineCount) != TokenType::NONE
+            || isStrLiteral(lookahead, tokLen) != TokenType::NONE) {
+
+            buffer = buffer.substr(0, buffer.length() - 2);
+            break;
+        }
+    }
+
+    return buffer;
 }
 
 Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen, unsigned long& lineCount) const {
@@ -186,11 +237,11 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
             return TokenType::LPAREN;
         case ')':
             return TokenType::RPAREN;
-        case '\r':
         case '\n':
-            return TokenType::NEWLINE;
+                return TokenType::NEWLINE;
         case '\t':
         case ' ':
+        case '\r':
             return TokenType::WHITESPACE;
         case ',':
             return TokenType::COMMA;
@@ -199,73 +250,64 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
     }
 }
 
-Pattern::TokenType Lexer::isKeyword(std::string& stream, int& tokLen) const {
-    unsigned long len = stream.length();
-    unsigned long pos = 1;
-    unsigned long lineCount = 0;
-    std::string buffer;
-    std::string lookahead;
-    while (pos < len - 1) {
-        pos++;
-        buffer = stream.substr(0, pos);
-        lookahead = buffer.substr(buffer.length() - 2, 2);
+Pattern::TokenType Lexer::isKeyword(string& s, int& tokLen, map<string, TokenType> const& keywords) const {
+    tokLen = static_cast<int>(s.length());
 
-        if (isOperator(lookahead, tokLen) != TokenType::NONE
-            || isComment(lookahead, tokLen, lineCount) != TokenType::NONE
-            || isStrLiteral(lookahead, tokLen) != TokenType::NONE) {
+    if (keywords.find(s) != keywords.end()) {
+        return keywords.at(s);
+    } else {
+        return TokenType::NONE;
+    }
+}
 
-            buffer = buffer.substr(0, buffer.length() - 2);
-            break;
+Pattern::TokenType Lexer::isNumeric(string& s, int& tokLen) const {
+    bool isReal = false;
+
+    tokLen = static_cast<int>(s.length());
+
+    //Checks for valid real or integer number
+    for (char c : s) {
+        if ((isReal && c =='.')) {
+            return TokenType::NONE;
+        } else if (!isReal && c == '.') {
+            isReal = true;
+        } else if (c < '0' || c > '9') {
+            return TokenType::NONE;
         }
     }
 
-    cout << "--------------------Buffer-------------------:" << buffer << endl;
-
-    return TokenType::NONE;
+    return isReal ? TokenType::REAL : TokenType::INT;
 }
 
-/**
- * Creates a map defining the tokens to be lexed and their corresponding regex
- * @return map of tokens/regex
- *//*
-std::map<TokenType, string> Lexer::createTokenMap() const {
-    std::map<TokenType, std::string> patterns {
-            {TokenType::BOOL, "true|false"},
-            {TokenType::IF, "if"},
-            {TokenType::THEN, "then"},
-            {TokenType::ELSE, "else"},
-            {TokenType::WHILE, "while"},
-            {TokenType::PRINT, "print"},
-            {TokenType::PRINTLN, "println"},
-            {TokenType::VAR, "var"},
-            {TokenType::GET, "get"},
-            {TokenType::LOGICAL, "\\band\\b|\\bor\\b|\\bnot"},
-            {TokenType::PROGRAM, "program"},
-            {TokenType::PROCEDURE, "procedure"},
-            {TokenType::RETURN, "return"},
-            {TokenType::BEGIN, "begin"},
-            {TokenType::END, "end"},
-            {TokenType::ID, "[a-zA-Z]([a-zA-Z]|[0-9])*"},
-            {TokenType::COMMENT, "\\{-|-\\}"},
-            {TokenType::LPAREN, "\\("},
-            {TokenType::RPAREN, "\\)"},
-            {TokenType::DOUBLEQUOTE, "\""},
-            {TokenType::SINGLEQUOTE, "\'"},
-            {TokenType::ASSIGNMENT, ":="},
-            //https://stackoverflow.com/questions/15937672/catch-the-relational-operators-with-regex
-            {TokenType::RELOP, "<|<=|>=|>|=="},
-            {TokenType ::ARITH, "\\+|-?=}|\\/|\\*"},
-            {TokenType::SEMI, ";"},
-            {TokenType::COMMA, ","},
-            {TokenType::INT, "[0-9]+"},
-            {TokenType::REAL, "[+-]?([0-9]*)?[.][0-9]+"},
-            {TokenType::OTHER, "[!#$%&?@\\^\\_`\\|]"}
 
-            //TODO - match string literals rather than quotes and IDs
+/**
+ * Creates a map defining which string keywords map to which tokens
+ * @return map of keywords/tokens
+ */
+map<string, TokenType> Lexer::getKeywords() const {
+    std::map<std::string, Pattern::TokenType> keywords {
+            {"begin", TokenType::BEGIN},
+            {"end", TokenType::END},
+            {"program", TokenType::PROGRAM},
+            {"procedure", TokenType::PROCEDURE},
+            {"return", TokenType::RETURN},
+            {"if", TokenType::IF},
+            {"then", TokenType::THEN},
+            {"else", TokenType::ELSE},
+            {"while", TokenType::WHILE},
+            {"print", TokenType::PRINT},
+            {"println", TokenType::PRINTLN},
+            {"var", TokenType::VAR},
+            {"get", TokenType::GET},
+            {"and", TokenType::AND},
+            {"or", TokenType::OR},
+            {"not", TokenType::NOT},
+            {"true", TokenType::TRUE},
+            {"false", TokenType::FALSE}
     };
 
-    return patterns;
-}*/
+    return keywords;
+}
 
 const string &Lexer::getFileContent() const {
     return fileContent;

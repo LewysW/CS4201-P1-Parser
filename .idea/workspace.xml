@@ -14,7 +14,10 @@
     <list default="true" id="84cdabe8-3570-4cbc-9e9f-c1975941c707" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Lexer.cpp" afterPath="$PROJECT_DIR$/Lexer.cpp" />
+      <change beforePath="$PROJECT_DIR$/Lexer.h" afterPath="$PROJECT_DIR$/Lexer.h" />
+      <change beforePath="$PROJECT_DIR$/Pattern.h" afterPath="$PROJECT_DIR$/Pattern.h" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CS4201_P1_Parser" afterPath="$PROJECT_DIR$/cmake-build-debug/CS4201_P1_Parser" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -33,9 +36,21 @@
             <file leaf-file-name="test.oreo" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/examples/test.oreo">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="162">
-                    <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                  <state relative-caret-position="234">
+                    <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
                     <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="Pattern.h" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/Pattern.h">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="774">
+                    <caret line="43" column="11" lean-forward="false" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+                    <folding>
+                      <element signature="e#13#30#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -51,8 +66,8 @@
       <file leaf-file-name="Lexer.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lexer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="220" column="0" lean-forward="true" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+            <state relative-caret-position="3816">
+              <caret line="273" column="40" lean-forward="true" selection-start-line="273" selection-start-column="40" selection-end-line="273" selection-end-column="40" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -63,22 +78,10 @@
       <file leaf-file-name="Lexer.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lexer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="810">
+              <caret line="45" column="24" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
               <folding>
                 <element signature="e#13#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pattern.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pattern.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-              <folding>
-                <element signature="e#13#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,7 +90,7 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="234">
               <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding />
             </state>
@@ -112,8 +115,8 @@
         <option value="$PROJECT_DIR$/Main.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/LexException.h" />
-        <option value="$PROJECT_DIR$/Pattern.h" />
         <option value="$PROJECT_DIR$/Lexer.h" />
+        <option value="$PROJECT_DIR$/Pattern.h" />
         <option value="$PROJECT_DIR$/Lexer.cpp" />
         <option value="$PROJECT_DIR$/examples/test.oreo" />
       </list>
@@ -232,12 +235,12 @@
       <workItem from="1570051090299" duration="339000" />
       <workItem from="1570216840954" duration="5851000" />
       <workItem from="1570274579594" duration="27358000" />
-      <workItem from="1570352788451" duration="2105000" />
+      <workItem from="1570352788451" duration="8884000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88043000" />
+    <option name="totallyTimeSpent" value="94822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -532,6 +535,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="69" lean-forward="false" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -595,6 +599,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -605,19 +610,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pattern.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
-          <folding>
-            <element signature="e#13#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="234">
           <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding />
         </state>
@@ -625,26 +620,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Lexer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="810">
+          <caret line="45" column="24" lean-forward="false" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
           <folding>
             <element signature="e#13#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Pattern.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="774">
+          <caret line="43" column="11" lean-forward="false" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+          <folding>
+            <element signature="e#13#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/test.oreo">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Lexer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="220" column="0" lean-forward="true" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+        <state relative-caret-position="3816">
+          <caret line="273" column="40" lean-forward="true" selection-start-line="273" selection-start-column="40" selection-end-line="273" selection-end-column="40" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

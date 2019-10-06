@@ -39,7 +39,9 @@ namespace Pattern {
         TRUE,
         FALSE,
         NEWLINE, // \n
-        WHITESPACE
+        WHITESPACE,
+        REAL,
+        INT
     };
 }
 
