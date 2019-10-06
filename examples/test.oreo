@@ -17,4 +17,4 @@ begin
        			   else begin n := 46; end ;;
     c := c + 1;	    
 	end;
-end    
+end

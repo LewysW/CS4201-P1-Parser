@@ -157,15 +157,17 @@ std::string Lexer::buffer(std::string& stream) const {
 Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen, unsigned long& lineCount) const {
     unsigned long len = s.length();
     tokLen = 0;
+    unsigned long lines = 0;
 
     if (len >= 2 && s.substr(0, 2) == "{-") {
         tokLen += 2;
 
-        while (tokLen < len - 2) {
-            if (s[tokLen + 1] == '\n') lineCount++;
+        while (tokLen < len) {
+            if (s[tokLen + 1] == '\n') lines++;
 
             if (s.substr(static_cast<unsigned long>(tokLen), 2) == "-}") {
                 tokLen += 2;
+                lineCount += lines;
                 return TokenType::COMMENT;
             }
 
