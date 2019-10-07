@@ -18,10 +18,10 @@ Lexer::Lexer(string const& file) :
 void Lexer::printTokens() {
     std::string tokStr;
 
-    for (std::pair<TokenType, string> p : getTokenList()) {
-        tokStr = TOKEN_STRINGS[static_cast<int>(p.first)];
-        tokStr += (p.second.empty()) ? "" : (": " + p.second);
-        cout << tokStr << endl;
+    for (Token const& t : getTokenList()) {
+        tokStr = TOKEN_STRINGS[static_cast<int>(t.getType())];
+        tokStr += (t.getValue().empty()) ? "" : (": " + t.getValue());
+        cout << tokStr << " on line " << t.getLineNum() << ", character " << t.getColNum() << endl;
     }
 }
 
@@ -52,7 +52,7 @@ std::string Lexer::readFile(string const& file) const {
  * Generates a list of tokens from the file of the Lexer
  * @return list of tokens
  */
-std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
+std::vector<Token> Lexer::tokenize() const {
     //Stores a list of keywords
     map<string, TokenType> keywords = getKeywords();
 
@@ -71,7 +71,7 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
     size_t len = content.length();
 
     //Stores the list of parsed tokens and the current token
-    std::vector<std::pair<TokenType, string>> tokens;
+    std::vector<Token> tokens;
     Pattern::TokenType token;
 
     while (lexemeStart < len - 1) {
@@ -80,15 +80,15 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
 
             //Parses comments
             if ((token = isComment(subStr, tokLen, lineCount)) != TokenType::NONE) {
-                tokens.emplace_back(std::make_pair(token, subStr.substr(0, tokLen)));
+                tokens.emplace_back(Token(token, subStr.substr(0, tokLen), lineCount, charCount));
             //Parses string literals
             } else if ((token = isStrLiteral(subStr, tokLen)) != TokenType::NONE) {
-                tokens.emplace_back(std::make_pair(token, subStr.substr(0, tokLen)));
+                tokens.emplace_back(Token(token, subStr.substr(0, tokLen), lineCount, charCount));
             //Parses operators
             } else if ((token = isOperator(subStr, tokLen)) != TokenType::NONE) {
                 //If token is not a newline and not in a comment or string literal
                 if (token != TokenType::NEWLINE && token != TokenType::WHITESPACE) {
-                    tokens.emplace_back(std::make_pair(token, ""));
+                    tokens.emplace_back(Token(token, "", lineCount, charCount));
                 } else if (token == TokenType::NEWLINE) {
                     lineCount++;
                     charCount = 0;
@@ -98,12 +98,12 @@ std::vector<std::pair<TokenType, string>> Lexer::tokenize() const {
 
                 //Parses keywords
                 if ((token = isKeyword(lexeme, tokLen, keywords)) != TokenType::NONE) {
-                    tokens.emplace_back(std::make_pair(token, ""));
+                    tokens.emplace_back(Token(token, "", lineCount, charCount));
                 //Parses ints or real numbers
                 } else if ((token = isNumeric(lexeme, tokLen)) != TokenType::NONE) {
-                    tokens.emplace_back(std::make_pair(token, lexeme));
+                    tokens.emplace_back(Token(token, lexeme, lineCount, charCount));
                 } else if ((token = isIdentifier(lexeme, tokLen)) != TokenType::NONE) {
-                    tokens.emplace_back(std::make_pair(token, lexeme));
+                    tokens.emplace_back(Token(token, lexeme, lineCount, charCount));
                 } else {
                     throw LexException("Invalid token");
                 }
@@ -335,7 +335,7 @@ const string &Lexer::getFileContent() const {
     return fileContent;
 }
 
-const std::vector<std::pair<TokenType, string>> &Lexer::getTokenList() const {
+const std::vector<Token> &Lexer::getTokenList() const {
     return tokenList;
 }
 

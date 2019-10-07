@@ -25,6 +25,8 @@ LexException.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
 Pattern.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
+Token.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.h
 string
 -
 map
@@ -39,6 +41,16 @@ string
 -
 vector
 -
+
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.cpp
+Token.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.h
+
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.h
+string
+-
+Pattern.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/main.cpp
 iostream

@@ -5,7 +5,6 @@
 using std::cout;
 using std::endl;
 
-//TODO - add token for invalid symbols which should throw an error if not in a comment
 int main(int argc, char* argv[]) {
     if (argc > 1) {
         std::string fileName = std::string(argv[1]);

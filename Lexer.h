@@ -1,5 +1,6 @@
 #pragma once
 #include "Pattern.h"
+#include "Token.h"
 #include <string>
 #include <map>
 #include <vector>
@@ -9,7 +10,7 @@
 class Lexer {
 private:
     std::string fileContent;
-    std::vector<std::pair<Pattern::TokenType, std::string>> tokenList;
+    std::vector<Token> tokenList;
 public:
     explicit Lexer(std::string const& file);
 
@@ -17,7 +18,7 @@ public:
 
     std::string readFile(std::string const& file) const;
 
-    std::vector<std::pair<Pattern::TokenType, std::string>> tokenize() const;
+    std::vector<Token> tokenize() const;
 
     Pattern::TokenType isComment(std::string& s, int& tokLen, unsigned long& lineCount) const;
 
@@ -37,7 +38,7 @@ public:
 
     const std::string &getFileContent() const;
 
-    const std::vector<std::pair<Pattern::TokenType, std::string>> &getTokenList() const;
+    const std::vector<Token> &getTokenList() const;
 
     //Allows for printing of token type strings
     const char* TOKEN_STRINGS[TOKEN_NUM] = {

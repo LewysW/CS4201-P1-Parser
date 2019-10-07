@@ -5,8 +5,14 @@ CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: ../LexException.h
 CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: ../Lexer.cpp
 CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: ../Lexer.h
 CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: ../Pattern.h
+CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: ../Token.h
+
+CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o: ../Pattern.h
+CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o: ../Token.cpp
+CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o: ../Token.h
 
 CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../Lexer.h
 CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../Pattern.h
+CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../Token.h
 CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../main.cpp
 
