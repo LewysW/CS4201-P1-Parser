@@ -57,90 +57,90 @@ include CMakeFiles/CS4201_P1_Parser.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/CS4201_P1_Parser.dir/flags.make
 
-CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: CMakeFiles/CS4201_P1_Parser.dir/flags.make
-CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o -c "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/main.cpp"
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: CMakeFiles/CS4201_P1_Parser.dir/flags.make
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o"
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o -c "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/main.cpp"
 
-CMakeFiles/CS4201_P1_Parser.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CS4201_P1_Parser.dir/main.cpp.i"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/main.cpp" > CMakeFiles/CS4201_P1_Parser.dir/main.cpp.i
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/main.cpp" > CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.i
 
-CMakeFiles/CS4201_P1_Parser.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CS4201_P1_Parser.dir/main.cpp.s"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/main.cpp" -o CMakeFiles/CS4201_P1_Parser.dir/main.cpp.s
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/main.cpp" -o CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.s
 
-CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o.requires:
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o.requires:
 
-.PHONY : CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o.requires
+.PHONY : CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o.requires
 
-CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o.provides: CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o.provides
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o.provides: CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o.provides.build
+.PHONY : CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o.provides
 
-CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o.provides.build: CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o
-
-
-CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: CMakeFiles/CS4201_P1_Parser.dir/flags.make
-CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o: ../Lexer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o -c "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.cpp"
-
-CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.i"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.cpp" > CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.i
-
-CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.s"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.cpp" -o CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.s
-
-CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o.requires:
-
-.PHONY : CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o.requires
-
-CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o.provides: CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o.requires
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o.provides.build
-.PHONY : CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o.provides
-
-CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o.provides.build: CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o.provides.build: CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o
 
 
-CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o: CMakeFiles/CS4201_P1_Parser.dir/flags.make
-CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o: ../Token.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o -c "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.cpp"
+CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o: CMakeFiles/CS4201_P1_Parser.dir/flags.make
+CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o: ../src/Lexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o"
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o -c "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.cpp"
 
-CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.i"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.cpp" > CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.i
+CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.cpp" > CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.i
 
-CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.s"
-	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.cpp" -o CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.s
+CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.cpp" -o CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.s
 
-CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o.requires:
+CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o.requires:
 
-.PHONY : CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o.requires
+.PHONY : CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o.requires
 
-CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o.provides: CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o.requires
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o.provides.build
-.PHONY : CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o.provides
+CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o.provides: CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o.provides.build
+.PHONY : CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o.provides
 
-CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o.provides.build: CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o
+CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o.provides.build: CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o
+
+
+CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o: CMakeFiles/CS4201_P1_Parser.dir/flags.make
+CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o: ../src/Token.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o"
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o -c "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.cpp"
+
+CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.cpp" > CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.i
+
+CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.cpp" -o CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.s
+
+CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o.requires:
+
+.PHONY : CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o.requires
+
+CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o.provides: CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o.provides.build
+.PHONY : CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o.provides
+
+CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o.provides.build: CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o
 
 
 # Object files for target CS4201_P1_Parser
 CS4201_P1_Parser_OBJECTS = \
-"CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o" \
-"CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o" \
-"CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o"
+"CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o" \
+"CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o" \
+"CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o"
 
 # External object files for target CS4201_P1_Parser
 CS4201_P1_Parser_EXTERNAL_OBJECTS =
 
-CS4201_P1_Parser: CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o
-CS4201_P1_Parser: CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o
-CS4201_P1_Parser: CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o
+CS4201_P1_Parser: CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o
+CS4201_P1_Parser: CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o
+CS4201_P1_Parser: CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o
 CS4201_P1_Parser: CMakeFiles/CS4201_P1_Parser.dir/build.make
 CS4201_P1_Parser: CMakeFiles/CS4201_P1_Parser.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable CS4201_P1_Parser"
@@ -151,9 +151,9 @@ CMakeFiles/CS4201_P1_Parser.dir/build: CS4201_P1_Parser
 
 .PHONY : CMakeFiles/CS4201_P1_Parser.dir/build
 
-CMakeFiles/CS4201_P1_Parser.dir/requires: CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o.requires
-CMakeFiles/CS4201_P1_Parser.dir/requires: CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o.requires
-CMakeFiles/CS4201_P1_Parser.dir/requires: CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o.requires
+CMakeFiles/CS4201_P1_Parser.dir/requires: CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o.requires
+CMakeFiles/CS4201_P1_Parser.dir/requires: CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o.requires
+CMakeFiles/CS4201_P1_Parser.dir/requires: CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o.requires
 
 .PHONY : CMakeFiles/CS4201_P1_Parser.dir/requires
 

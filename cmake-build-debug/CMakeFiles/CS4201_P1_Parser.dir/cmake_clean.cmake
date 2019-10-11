@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o"
-  "CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o"
-  "CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o"
+  "CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o"
+  "CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o"
+  "CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o"
   "CS4201_P1_Parser.pdb"
   "CS4201_P1_Parser"
 )

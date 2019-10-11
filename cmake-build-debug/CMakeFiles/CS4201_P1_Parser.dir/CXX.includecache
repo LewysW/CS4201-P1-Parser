@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/LexException.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/LexException.h
 iostream
 -
 exception
 -
 
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.cpp
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.cpp
 iostream
 -
 fstream
 -
 Lexer.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
 LexException.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/LexException.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/LexException.h
 
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
 Pattern.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Pattern.h
 Token.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.h
 string
 -
 map
@@ -36,23 +36,23 @@ vector
 regex
 -
 
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Pattern.h
 string
 -
 vector
 -
 
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.cpp
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.cpp
 Token.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.h
 
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Token.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.h
 string
 -
 Pattern.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Pattern.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Pattern.h
 
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/main.cpp
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/main.cpp
 iostream
 -
 map
@@ -60,5 +60,5 @@ map
 regex
 -
 Lexer.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/Lexer.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
 

@@ -123,86 +123,86 @@ CS4201_P1_Parser/fast:
 	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/build
 .PHONY : CS4201_P1_Parser/fast
 
-Lexer.o: Lexer.cpp.o
+src/Lexer.o: src/Lexer.cpp.o
 
-.PHONY : Lexer.o
-
-# target to build an object file
-Lexer.cpp.o:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.o
-.PHONY : Lexer.cpp.o
-
-Lexer.i: Lexer.cpp.i
-
-.PHONY : Lexer.i
-
-# target to preprocess a source file
-Lexer.cpp.i:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.i
-.PHONY : Lexer.cpp.i
-
-Lexer.s: Lexer.cpp.s
-
-.PHONY : Lexer.s
-
-# target to generate assembly for a file
-Lexer.cpp.s:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Lexer.cpp.s
-.PHONY : Lexer.cpp.s
-
-Token.o: Token.cpp.o
-
-.PHONY : Token.o
+.PHONY : src/Lexer.o
 
 # target to build an object file
-Token.cpp.o:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.o
-.PHONY : Token.cpp.o
+src/Lexer.cpp.o:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o
+.PHONY : src/Lexer.cpp.o
 
-Token.i: Token.cpp.i
+src/Lexer.i: src/Lexer.cpp.i
 
-.PHONY : Token.i
+.PHONY : src/Lexer.i
 
 # target to preprocess a source file
-Token.cpp.i:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.i
-.PHONY : Token.cpp.i
+src/Lexer.cpp.i:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.i
+.PHONY : src/Lexer.cpp.i
 
-Token.s: Token.cpp.s
+src/Lexer.s: src/Lexer.cpp.s
 
-.PHONY : Token.s
+.PHONY : src/Lexer.s
 
 # target to generate assembly for a file
-Token.cpp.s:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/Token.cpp.s
-.PHONY : Token.cpp.s
+src/Lexer.cpp.s:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.s
+.PHONY : src/Lexer.cpp.s
 
-main.o: main.cpp.o
+src/Token.o: src/Token.cpp.o
 
-.PHONY : main.o
+.PHONY : src/Token.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/Token.cpp.o:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o
+.PHONY : src/Token.cpp.o
 
-main.i: main.cpp.i
+src/Token.i: src/Token.cpp.i
 
-.PHONY : main.i
+.PHONY : src/Token.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/Token.cpp.i:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.i
+.PHONY : src/Token.cpp.i
 
-main.s: main.cpp.s
+src/Token.s: src/Token.cpp.s
 
-.PHONY : main.s
+.PHONY : src/Token.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/Token.cpp.s:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.s
+.PHONY : src/Token.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -213,15 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... CS4201_P1_Parser"
-	@echo "... Lexer.o"
-	@echo "... Lexer.i"
-	@echo "... Lexer.s"
-	@echo "... Token.o"
-	@echo "... Token.i"
-	@echo "... Token.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/Lexer.o"
+	@echo "... src/Lexer.i"
+	@echo "... src/Lexer.s"
+	@echo "... src/Token.o"
+	@echo "... src/Token.i"
+	@echo "... src/Token.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

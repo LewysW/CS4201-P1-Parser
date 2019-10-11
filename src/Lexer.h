@@ -69,7 +69,7 @@ public:
             "ELSE", //else
             "WHILE", //while
             "PRINT", //print
-            "PRINTLN", //print
+            "PRINTLN", //println
             "VAR", // var
             "GET", // get
             "AND", // and
