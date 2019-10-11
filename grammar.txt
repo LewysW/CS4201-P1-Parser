@@ -1,0 +1,48 @@
+P -> program id Compound .
+
+Compound -> begin Stmt+ end . //When testing in the grammar checker online, + needs to be removed
+
+Stmt -> V | Pr | W | I | A .
+
+V -> var id V' ; .
+
+V' -> assign Expr1 | . //assign denotes :=
+
+Pr -> print Expr1 ; | println Expr1 ; | get id ; .
+
+W -> while ( Expr1 ) Compound ; .
+
+I -> if ( Expr1 ) Compound I' ; .
+
+I' -> else Compound | .
+
+A -> id assign expr ; .
+
+Expr1 -> Expr2 Expr1' .
+
+Expr1' -> or Expr1 Expr1' | .
+
+Expr2 -> Expr3 Expr2' .
+
+Expr2' -> and Expr2 Expr2' | .
+
+Expr3 -> Expr4 Expr3' .
+
+Expr3' -> equals Expr3 Expr3' | . //equals denotes ==
+
+Expr4 -> Expr5 Expr4' .
+
+Expr4' -> relop Expr4 Expr4' | . //relop denotes >, <, >=, <= as these have equal precedence
+
+Expr5 -> Expr6 Expr5' .
+
+Expr5' -> addop Expr5 Expr5' | . //addop is + and - as these have equal precedence
+
+Expr6 -> Expr7 Expr6' .
+
+Expr6' -> mulop Expr6 Expr6' | . //mulop is * and / as these have equal precedence
+
+Expr7 -> not Expr7 | Expr8 .
+
+Expr8 -> ( Expr1 ) | literal . //Where literal is a string, digit+, id, true, false
+
