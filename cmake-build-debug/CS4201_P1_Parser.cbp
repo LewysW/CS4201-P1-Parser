@@ -80,13 +80,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/LexException.h">
-			<Option target="CS4201_P1_Parser"/>
-		</Unit>
 		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.cpp">
 			<Option target="CS4201_P1_Parser"/>
 		</Unit>
 		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h">
+			<Option target="CS4201_P1_Parser"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/ParseException.h">
 			<Option target="CS4201_P1_Parser"/>
 		</Unit>
 		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.cpp">

@@ -3,12 +3,12 @@
 #include <iostream>
 #include <exception>
 
-class LexException: public std::exception {
+class ParseException: public std::exception {
 private:
     const char* errMsg;
 
 public:
-    explicit LexException(const char* msg) : errMsg(msg)
+    explicit ParseException(const char* msg) : errMsg(msg)
     {
     }
 

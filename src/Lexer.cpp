@@ -107,7 +107,7 @@ std::vector<Token> Lexer::tokenize() const {
                 } else if ((token = isIdentifier(lexeme, tokLen)) != TokenType::NONE) {
                     tokens.emplace_back(Token(token, lexeme, lineCount, charCount));
                 } else {
-                    throw LexException("Invalid token");
+                    throw ParseException("Invalid token");
                 }
             }
 
@@ -116,8 +116,8 @@ std::vector<Token> Lexer::tokenize() const {
 
             //Increments the char count of the current line
             charCount += tokLen;
-        } catch (LexException& e) {
-            cout << "Error: " << e.what() << ", line " << lineCount << ", column " << charCount;
+        } catch (ParseException& e) {
+            cout << "Lexical Analysis Error: " << e.what() << ", line " << lineCount << ", column " << charCount;
             exit(1);
         }
     }
@@ -176,7 +176,7 @@ Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen, unsigned long& 
             tokLen++;
         }
 
-        throw LexException("Unclosed comment");
+        throw ParseException("Unclosed comment");
     } else {
         return TokenType::NONE;
     }
@@ -199,7 +199,7 @@ Pattern::TokenType Lexer::isStrLiteral(std::string& s, int& tokLen) const {
             tokLen++;
         }
 
-        throw LexException("Unclosed string literal");
+        throw ParseException("Unclosed string literal");
     } else {
         return TokenType::NONE;
     }
@@ -231,14 +231,14 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
                 tokLen++;
                 return TokenType::EQ;
             } else {
-                throw LexException("Invalid token '='");
+                throw ParseException("Invalid token '='");
             }
         case ':':
             if (second == '=') {
                 tokLen++;
                 return TokenType::ASSIGN;
             } else {
-                throw LexException("Invalid token ':'");
+                throw ParseException("Invalid token ':'");
             }
         case ';':
             return TokenType::SEMI;

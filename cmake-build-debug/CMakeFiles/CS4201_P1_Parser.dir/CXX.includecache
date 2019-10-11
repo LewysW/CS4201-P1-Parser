@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/LexException.h
-iostream
--
-exception
--
-
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.cpp
 Lexer.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
@@ -19,8 +13,8 @@ Lexer.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
 Pattern.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Pattern.h
-LexException.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/LexException.h
+ParseException.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/ParseException.h
 Token.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.h
 string
@@ -34,6 +28,12 @@ regex
 iostream
 -
 fstream
+-
+
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/ParseException.h
+iostream
+-
+exception
 -
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.cpp

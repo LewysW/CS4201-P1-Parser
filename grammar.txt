@@ -4,7 +4,7 @@ http://smlweb.cpsc.ucalgary.ca/vital-stats.php?grammar=P+-%3E+program+id+Compoun
 
 P -> program id Compound .
 
-Compound -> begin Stmts end . //When testing in the grammar checker online, + needs to be removed
+Compound -> begin Stmt Stmts end . //When testing in the grammar checker online, + needs to be removed
 
 Stmts -> Stmt Stmts | .
 
