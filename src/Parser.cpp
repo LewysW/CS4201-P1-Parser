@@ -14,7 +14,6 @@ void Parser::printTree() {
 }
 
 TreeNode Parser::parse(std::vector<Token> const& tokens) {
-    Lexer::printTokens(tokens);
     TreeNode node("hello");
     return node;
 }
