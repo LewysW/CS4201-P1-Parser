@@ -1,6 +1,9 @@
 #pragma once
+
 #include <string>
 #include <vector>
+#define TOKEN_NUM 39
+//#include "Lexer.h"
 
 namespace Pattern {
     enum class TokenType {
@@ -44,5 +47,6 @@ namespace Pattern {
         NUM,
         ID
     };
+
 }
 

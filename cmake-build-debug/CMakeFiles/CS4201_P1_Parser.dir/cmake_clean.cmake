@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o"
   "CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o"
   "CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o"
+  "CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.o"
+  "CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o"
   "CS4201_P1_Parser.pdb"
   "CS4201_P1_Parser"
 )

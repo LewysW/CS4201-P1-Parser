@@ -13,18 +13,14 @@ exception
 -
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.cpp
-iostream
--
-fstream
--
 Lexer.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
-LexException.h
-/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/LexException.h
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
 Pattern.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Pattern.h
+LexException.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/LexException.h
 Token.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.h
 string
@@ -34,6 +30,24 @@ map
 vector
 -
 regex
+-
+iostream
+-
+fstream
+-
+
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.cpp
+Parser.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.h
+
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.h
+TreeNode.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/TreeNode.h
+Lexer.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
+iostream
+-
+string
 -
 
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Pattern.h
@@ -52,6 +66,16 @@ string
 Pattern.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Pattern.h
 
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/TreeNode.cpp
+TreeNode.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/TreeNode.h
+
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/TreeNode.h
+vector
+-
+Token.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.h
+
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/main.cpp
 iostream
 -
@@ -61,4 +85,6 @@ regex
 -
 Lexer.h
 /cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h
+Parser.h
+/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.h
 

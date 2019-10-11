@@ -150,6 +150,33 @@ src/Lexer.cpp.s:
 	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.s
 .PHONY : src/Lexer.cpp.s
 
+src/Parser.o: src/Parser.cpp.o
+
+.PHONY : src/Parser.o
+
+# target to build an object file
+src/Parser.cpp.o:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o
+.PHONY : src/Parser.cpp.o
+
+src/Parser.i: src/Parser.cpp.i
+
+.PHONY : src/Parser.i
+
+# target to preprocess a source file
+src/Parser.cpp.i:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.i
+.PHONY : src/Parser.cpp.i
+
+src/Parser.s: src/Parser.cpp.s
+
+.PHONY : src/Parser.s
+
+# target to generate assembly for a file
+src/Parser.cpp.s:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.s
+.PHONY : src/Parser.cpp.s
+
 src/Token.o: src/Token.cpp.o
 
 .PHONY : src/Token.o
@@ -176,6 +203,33 @@ src/Token.s: src/Token.cpp.s
 src/Token.cpp.s:
 	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.s
 .PHONY : src/Token.cpp.s
+
+src/TreeNode.o: src/TreeNode.cpp.o
+
+.PHONY : src/TreeNode.o
+
+# target to build an object file
+src/TreeNode.cpp.o:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.o
+.PHONY : src/TreeNode.cpp.o
+
+src/TreeNode.i: src/TreeNode.cpp.i
+
+.PHONY : src/TreeNode.i
+
+# target to preprocess a source file
+src/TreeNode.cpp.i:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.i
+.PHONY : src/TreeNode.cpp.i
+
+src/TreeNode.s: src/TreeNode.cpp.s
+
+.PHONY : src/TreeNode.s
+
+# target to generate assembly for a file
+src/TreeNode.cpp.s:
+	$(MAKE) -f CMakeFiles/CS4201_P1_Parser.dir/build.make CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.s
+.PHONY : src/TreeNode.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -216,9 +270,15 @@ help:
 	@echo "... src/Lexer.o"
 	@echo "... src/Lexer.i"
 	@echo "... src/Lexer.s"
+	@echo "... src/Parser.o"
+	@echo "... src/Parser.i"
+	@echo "... src/Parser.s"
 	@echo "... src/Token.o"
 	@echo "... src/Token.i"
 	@echo "... src/Token.s"
+	@echo "... src/TreeNode.o"
+	@echo "... src/TreeNode.i"
+	@echo "... src/TreeNode.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -5,7 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.cpp" "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o"
+  "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.cpp" "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o"
   "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.cpp" "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o"
+  "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/TreeNode.cpp" "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.o"
   "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/main.cpp" "/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

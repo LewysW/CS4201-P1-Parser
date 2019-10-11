@@ -89,6 +89,12 @@
 		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Lexer.h">
 			<Option target="CS4201_P1_Parser"/>
 		</Unit>
+		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.cpp">
+			<Option target="CS4201_P1_Parser"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Parser.h">
+			<Option target="CS4201_P1_Parser"/>
+		</Unit>
 		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Pattern.h">
 			<Option target="CS4201_P1_Parser"/>
 		</Unit>
@@ -96,6 +102,12 @@
 			<Option target="CS4201_P1_Parser"/>
 		</Unit>
 		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/Token.h">
+			<Option target="CS4201_P1_Parser"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/TreeNode.cpp">
+			<Option target="CS4201_P1_Parser"/>
+		</Unit>
+		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/TreeNode.h">
 			<Option target="CS4201_P1_Parser"/>
 		</Unit>
 		<Unit filename="/cs/home/locw/Documents/Fourth Year/CS4201/CS4201-P1-Parser/src/main.cpp">

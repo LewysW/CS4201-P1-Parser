@@ -7,12 +7,28 @@ CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o: ../src/Lexer.h
 CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o: ../src/Pattern.h
 CMakeFiles/CS4201_P1_Parser.dir/src/Lexer.cpp.o: ../src/Token.h
 
+CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o: ../src/LexException.h
+CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o: ../src/Lexer.h
+CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o: ../src/Parser.cpp
+CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o: ../src/Parser.h
+CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o: ../src/Pattern.h
+CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o: ../src/Token.h
+CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o: ../src/TreeNode.h
+
 CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o: ../src/Pattern.h
 CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o: ../src/Token.cpp
 CMakeFiles/CS4201_P1_Parser.dir/src/Token.cpp.o: ../src/Token.h
 
+CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.o: ../src/Pattern.h
+CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.o: ../src/Token.h
+CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.o: ../src/TreeNode.cpp
+CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.o: ../src/TreeNode.h
+
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: ../src/LexException.h
 CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: ../src/Lexer.h
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: ../src/Parser.h
 CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: ../src/Pattern.h
 CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: ../src/Token.h
+CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: ../src/TreeNode.h
 CMakeFiles/CS4201_P1_Parser.dir/src/main.cpp.o: ../src/main.cpp
 

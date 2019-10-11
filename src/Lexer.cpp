@@ -1,7 +1,4 @@
-#include <iostream>
-#include <fstream>
 #include "Lexer.h"
-#include "LexException.h"
 
 using Pattern::TokenType;
 using std::string;
@@ -16,12 +13,17 @@ Lexer::Lexer(string const& file) :
 }
 
 void Lexer::printTokens() {
+    printTokens(getTokenList());
+}
+
+void Lexer::printTokens(const std::vector<Token> &tokens) {
     std::string tokStr;
 
-    for (Token const& t : getTokenList()) {
+    for (Token const& t : tokens) {
         tokStr = TOKEN_STRINGS[static_cast<int>(t.getType())];
         tokStr += (t.getValue().empty()) ? "" : (": " + t.getValue());
-        cout << tokStr << " on line " << t.getLineNum() << ", character " << t.getColNum() << endl;
+        cout << tokStr << endl;
+        //cout << tokStr << " on line " << t.getLineNum() << ", character " << t.getColNum() << endl;
     }
 }
 

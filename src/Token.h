@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <string>
 #include "Pattern.h"
 
@@ -12,6 +11,8 @@ private:
     unsigned long colNum;
 
 public:
+    Token()=default;
+
     Token(Pattern::TokenType tok, std::string val, unsigned long line, unsigned long col);
 
     Pattern::TokenType getType() const;
