@@ -38,8 +38,7 @@ private:
     void addExpr2(TreeNode& node); //Expr5'
     void mulExpr1(TreeNode& node); //Expr6
     void mulExpr2(TreeNode& node); //Expr6'
-    void notExpr(TreeNode& node); //Expr7
-    void valueExpr(TreeNode& node); //Expr8
+    void valueExpr(TreeNode& node); //Expr7
 
 public:
     explicit Parser(const std::vector<Token>& tokens);

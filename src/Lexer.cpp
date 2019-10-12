@@ -117,7 +117,7 @@ std::vector<Token> Lexer::tokenize() const {
             //Increments the char count of the current line
             charCount += tokLen;
         } catch (ParseException& e) {
-            cout << "Lexical Analysis Error: " << e.what() << ", line " << lineCount << ", column " << charCount;
+            cout << "Error: " << e.what() << ", line " << lineCount << ", column " << charCount;
             exit(1);
         }
     }
