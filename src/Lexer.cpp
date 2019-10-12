@@ -19,12 +19,15 @@ void Lexer::printTokens() {
 void Lexer::printTokens(const std::vector<Token> &tokens) {
     std::string tokStr;
 
+    std::cout << "Lexical Analysis:" << std::endl;
+    std::cout << "------------------------------------------------------------------" << std::endl;
     for (Token const& t : tokens) {
         tokStr = TOKEN_STRINGS[static_cast<int>(t.getType())];
         tokStr += (t.getValue().empty()) ? "" : (": " + t.getValue());
         cout << tokStr << endl;
-        //cout << tokStr << " on line " << t.getLineNum() << ", character " << t.getColNum() << endl;
     }
+
+    std::cout << std::endl;
 }
 
 /**

@@ -22,6 +22,8 @@ public:
 
     const std::string &getLabel() const;
 
+    const Token &getToken() const;
+
 };
 
 

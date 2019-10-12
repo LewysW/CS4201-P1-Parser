@@ -1,7 +1,8 @@
 #include "TreeNode.h"
 
 TreeNode::TreeNode(std::string l)  :
-        label(std::move(l))
+        label(std::move(l)),
+        token(Token(Pattern::TokenType::NONE, l, 0, 0))
 {
 }
 
@@ -25,4 +26,8 @@ void TreeNode::setLabel(const std::string &label) {
 
 const std::string &TreeNode::getLabel() const {
     return label;
+}
+
+const Token &TreeNode::getToken() const {
+    return token;
 }

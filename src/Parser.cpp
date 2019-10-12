@@ -4,12 +4,33 @@ using Pattern::TokenType;
 
 Parser::Parser(const std::vector<Token>& toks) :
         tokens(removeComments(toks)),
-        parseTree(parse())
+        parseTree(TreeNode("P"))
 {
+    parse();
 }
 
 void Parser::printTree() {
+    printNode(parseTree);
+}
 
+//TODO - the printing
+void Parser::printNode(TreeNode& node) {
+    Token const& token = node.getToken();
+
+    if (token.getType() != TokenType::NONE) {
+        std::string tokStr = Lexer::TOKEN_STRINGS.at(static_cast<unsigned long>(token.getType()));
+        tokStr = tokStr + ((token.getValue().empty()) ? "" : ": " + token.getValue());
+        tokStr += ",\n";
+        std::cout << tokStr << std::endl;
+    } else {
+        std::cout << token.getValue() << " {" << std::endl;
+        
+        //TODO ensure that children are found
+        for (TreeNode t : node.getChildren()) {
+            printNode(t);
+        }
+        std::cout << std::endl << "}" << std::endl;
+    }
 }
 
 std::vector<Token> Parser::removeComments(std::vector<Token> tokens) {
@@ -19,7 +40,7 @@ std::vector<Token> Parser::removeComments(std::vector<Token> tokens) {
         if (t.getType() != Pattern::TokenType::COMMENT)
             toks.emplace_back(t);
     }
-    Lexer::printTokens(toks);
+
     return toks;
 }
 
@@ -42,10 +63,9 @@ void Parser::match(TokenType t, TreeNode& node) {
     }
 }
 
-TreeNode& Parser::parse() {
+void Parser::parse() {
     try {
         prog(parseTree);
-        return parseTree;
     } catch (ParseException& e) {
         std::cout << e.what() << std::endl;
         exit(2);
@@ -344,9 +364,7 @@ void Parser::valueExpr(TreeNode &node) {
     switch(t.getType()) {
         case TokenType::NOT:
             match(TokenType::NOT, node);
-            match(TokenType::LPAREN, node);
-            expr(node);
-            match(TokenType::RPAREN, node);
+            valueExpr(node);
             break;
         case TokenType::LPAREN:
             match(TokenType::LPAREN, node);

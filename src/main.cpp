@@ -18,6 +18,7 @@ int main(int argc, char* argv[]) {
         lexer.printTokens();
 
         Parser parser(lexer.getTokenList());
+        parser.printTree();
     }
 
     return 0;

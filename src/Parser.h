@@ -9,8 +9,9 @@ class Parser {
 private:
     //Current token counter
     std::vector<Token> tokens;
-    TreeNode& parseTree;
+    TreeNode parseTree;
     std::vector<Token> removeComments(std::vector<Token> tokens);
+    void printNode(TreeNode& node);
 
     void match(Pattern::TokenType t, TreeNode& node);
 
@@ -42,7 +43,7 @@ private:
 
 public:
     explicit Parser(const std::vector<Token>& tokens);
-    TreeNode& parse();
+    void parse();
     void printTree();
 
     const std::vector<Token> &getTokens() const;

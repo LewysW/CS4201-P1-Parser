@@ -48,4 +48,4 @@ Expr6 -> Expr7 Expr6' .
 
 Expr6' -> mulop Expr7 Expr6' |. //mulop is * and / as these have equal precedence
 
-Expr7 -> not ( Expr1 ) | ( Expr1 ) | literal . //Where literal is a string, digit+, id, true, false
+Expr7 -> not Expr7 | ( Expr1 ) | literal . //Where literal is a string, digit+, id, true, false
