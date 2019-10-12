@@ -22,3 +22,7 @@ void TreeNode::addChild(const TreeNode &child) {
 void TreeNode::setLabel(const std::string &label) {
     TreeNode::label = label;
 }
+
+const std::string &TreeNode::getLabel() const {
+    return label;
+}

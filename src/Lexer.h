@@ -49,40 +49,40 @@ public:
 
     inline static const std::vector<std::string> TOKEN_STRINGS {
             "NONE",
-            "LT", //Less than
-            "LTE", //Less than equal to
-            "GT", //Greater than
-            "GTE", //Greater than equal to
-            "EQ", //Equal to
-            "ASSIGN", //assignment
-            "SEMI", //Semi colon
-            "PLUS", // +
-            "MINUS", // -
-            "DIVIDE", // '/'
-            "MULTIPLY", // *
+            "<", //Less than
+            "<=", //Less than equal to
+            ">", //Greater than
+            ">=", //Greater than equal to
+            "==", //Equal to
+            ":=", //assignment
+            ";", //Semi colon
+            "+", // +
+            "-", // -
+            "/", // '/'
+            "*", // *
             "STRING", //String literal
-            "LPAREN", //Left paren
-            "RPAREN", //Right paren
+            "(", //Left paren
+            ")", //Right paren
             "COMMENT", //Comment
-            "COMMA", // ,
-            "BEGIN", //begin
-            "END", //end
-            "PROGRAM", //program
-            "PROCEDURE", //procedure
-            "RETURN", //return
-            "IF", //if
-            "THEN", // then
-            "ELSE", //else
-            "WHILE", //while
-            "PRINT", //print
-            "PRINTLN", //println
-            "VAR", // var
-            "GET", // get
-            "AND", // and
-            "OR", // or
-            "NOT", // not
-            "TRUE", // true
-            "FALSE", // false
+            ",", // ,
+            "begin", //begin
+            "end", //end
+            "program", //program
+            "procedure", //procedure
+            "return", //return
+            "if", //if
+            "then", // then
+            "else", //else
+            "while", //while
+            "print", //print
+            "println", //println
+            "var", // var
+            "get", // get
+            "and", // and
+            "or", // or
+            "not", // not
+            "true", // true
+            "false", // false
             "NEWLINE", //\n
             "WHITESPACE", //\r \s \t
             "NUM", //sequence of digits

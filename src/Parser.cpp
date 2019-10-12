@@ -32,10 +32,11 @@ void Parser::match(TokenType t, TreeNode& node) {
         tokens.erase(tokens.begin());
         std::cout << "Matched " << type << std::endl;
     } else {
-        std::string err = "Error: Invalid token " + type;
-        err += " on line " + std::to_string(current.getLineNum());
+        std::string err = "Error: Invalid token \'" + type;
+        err += "\' on line " + std::to_string(current.getLineNum());
         err += ", character " + std::to_string(current.getColNum());
-        err += "\nExpected token " + Lexer::TOKEN_STRINGS[static_cast<unsigned long>(t)];
+        err += ". Expected token \'" + Lexer::TOKEN_STRINGS[static_cast<unsigned long>(t)];
+        err += "\'";
         std::cout << err.c_str() << std::endl;
         throw ParseException(err.c_str());
     }
@@ -45,7 +46,7 @@ TreeNode& Parser::parse() {
     try {
         prog(parseTree);
         return parseTree;
-    } catch (ParseException e) {
+    } catch (ParseException& e) {
         std::cout << e.what() << std::endl;
         exit(2);
     }
@@ -82,7 +83,7 @@ void Parser::stmts(TreeNode &node) {
         case TokenType::GET:
         case TokenType::WHILE:
         case TokenType::IF:
-        case TokenType::ASSIGN:
+        case TokenType::ID:
             stmt(child);
             stmts(child);
             break;
@@ -317,7 +318,7 @@ void Parser::addExpr2(TreeNode &node) {
 }
 
 void Parser::mulExpr1(TreeNode &node) {
-    notExpr(node);
+    valueExpr(node);
     mulExpr2(node);
 }
 
@@ -333,22 +334,20 @@ void Parser::mulExpr2(TreeNode &node) {
     }
 
     //Only executes if token is * or /
-    notExpr(node);
-    mulExpr2(node);
-}
-
-void Parser::notExpr(TreeNode &node) {
-    if (tokens.front().getType() == TokenType::NOT) {
-        notExpr(node);
-    }
-
     valueExpr(node);
+    mulExpr2(node);
 }
 
 void Parser::valueExpr(TreeNode &node) {
     Token t = tokens.front();
 
     switch(t.getType()) {
+        case TokenType::NOT:
+            match(TokenType::NOT, node);
+            match(TokenType::LPAREN, node);
+            expr(node);
+            match(TokenType::RPAREN, node);
+            break;
         case TokenType::LPAREN:
             match(TokenType::LPAREN, node);
             expr(node);

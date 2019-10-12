@@ -19,6 +19,9 @@ public:
     void addChild(const TreeNode &child);
 
     void setLabel(const std::string &label);
+
+    const std::string &getLabel() const;
+
 };
 
 
