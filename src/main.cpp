@@ -16,6 +16,7 @@ int main(int argc, char* argv[]) {
         lexer.printTokens();
 
         Parser parser(lexer.getTokenList());
+        std::cout << parser.getTokens().size() << std::endl;
     }
 
     return 0;

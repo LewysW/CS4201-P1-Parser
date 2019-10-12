@@ -14,7 +14,7 @@ begin
     while ( first < (second > 32))
     begin
        if ( true ) then begin n := 5;  end
-       			   else begin n := 46; end ;;
+       			   else begin n := 46; end ;
     c := c + 1;	    
 	end;
 end

@@ -8,13 +8,13 @@
 class Parser {
 private:
     //Current token counter
-    std::vector<Token>& tokens;
-    TreeNode parseTree;
-    std::vector<Token>& removeComments(const std::vector<Token>& tokens);
+    std::vector<Token> tokens;
+    TreeNode& parseTree;
+    std::vector<Token> removeComments(std::vector<Token> tokens);
 
     void match(Pattern::TokenType t, TreeNode& node);
 
-    TreeNode& prog(); //P
+    void prog(TreeNode& node); //P
     void compound(TreeNode& node); //Compound
     void stmts(TreeNode& node); //Stmts
     void stmt(TreeNode& node); //Stmt
@@ -25,6 +25,7 @@ private:
     void ifStmt(TreeNode& node); //I
     void elseStmt(TreeNode& node); //I'
     void assign(TreeNode& node); //A
+    void expr(TreeNode& node); //Added for readability in code, calls orExpr1
     void orExpr1(TreeNode& node); //Expr1
     void orExpr2(TreeNode& node); //Expr1'
     void andExpr1(TreeNode& node); //Expr2
@@ -38,12 +39,14 @@ private:
     void mulExpr1(TreeNode& node); //Expr6
     void mulExpr2(TreeNode& node); //Expr6'
     void notExpr(TreeNode& node); //Expr7
-    void bracketedExpr(TreeNode& node); //Expr8
+    void valueExpr(TreeNode& node); //Expr8
 
 public:
     explicit Parser(const std::vector<Token>& tokens);
     TreeNode& parse();
     void printTree();
+
+    const std::vector<Token> &getTokens() const;
 };
 
 

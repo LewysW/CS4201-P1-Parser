@@ -1,7 +1,3 @@
-//
-// Created by locw on 11/10/19.
-//
-
 #include "TreeNode.h"
 
 TreeNode::TreeNode(std::string l)  :
@@ -21,4 +17,8 @@ const std::vector<TreeNode> &TreeNode::getChildren() const {
 
 void TreeNode::addChild(const TreeNode &child) {
     children.emplace_back(child);
+}
+
+void TreeNode::setLabel(const std::string &label) {
+    TreeNode::label = label;
 }

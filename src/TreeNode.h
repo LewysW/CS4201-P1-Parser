@@ -17,6 +17,8 @@ public:
     const std::vector<TreeNode> &getChildren() const;
 
     void addChild(const TreeNode &child);
+
+    void setLabel(const std::string &label);
 };
 
 
