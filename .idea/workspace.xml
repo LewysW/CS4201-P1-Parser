@@ -15,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CS4201_P1_Parser" afterPath="$PROJECT_DIR$/cmake-build-debug/CS4201_P1_Parser" />
-      <change beforePath="$PROJECT_DIR$/examples/test6.oreo" afterPath="$PROJECT_DIR$/examples/test6.oreo" />
       <change beforePath="$PROJECT_DIR$/src/Parser.cpp" afterPath="$PROJECT_DIR$/src/Parser.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -57,7 +56,7 @@
               <entry file="file://$PROJECT_DIR$/examples/test6.oreo">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="324">
-                    <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+                    <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
                     <folding />
                   </state>
                 </provider>
@@ -86,20 +85,30 @@
       <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5238">
-              <caret line="402" column="12" lean-forward="false" selection-start-line="402" selection-start-column="12" selection-end-line="402" selection-end-column="12" />
+            <state relative-caret-position="432">
+              <caret line="71" column="20" lean-forward="true" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
               <folding>
                 <element signature="e#220#427#0" expanded="false" />
                 <element signature="e#429#1417#0" expanded="false" />
                 <element signature="e#1419#1664#0" expanded="false" />
-                <element signature="e#6677#6902#0" expanded="false" />
-                <element signature="e#6904#7199#0" expanded="false" />
-                <element signature="e#7793#7998#0" expanded="false" />
-                <element signature="e#8420#9002#0" expanded="false" />
-                <element signature="e#9103#9469#0" expanded="false" />
-                <element signature="e#9571#9948#0" expanded="false" />
-                <element signature="e#11240#11314#0" expanded="false" />
+                <element signature="e#6743#6968#0" expanded="false" />
+                <element signature="e#6970#7265#0" expanded="false" />
+                <element signature="e#7859#8064#0" expanded="false" />
+                <element signature="e#8486#9068#0" expanded="false" />
+                <element signature="e#9169#9535#0" expanded="false" />
+                <element signature="e#9637#10014#0" expanded="false" />
+                <element signature="e#11294#11368#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParseException.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ParseException.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,8 +175,12 @@
       <find>node</find>
       <find>expr</find>
       <find>throw ParseException</find>
-      <find>err</find>
       <find>ParseE</find>
+      <find>err</find>
+      <find>parseEx</find>
+      <find>ParseException</find>
+      <find>ParseExc</find>
+      <find>parseException</find>
     </findStrings>
     <replaceStrings>
       <replace>node-&gt;</replace>
@@ -190,7 +203,6 @@
         <option value="$PROJECT_DIR$/Token.cpp" />
         <option value="$PROJECT_DIR$/Lexer.h" />
         <option value="$PROJECT_DIR$/src/Pattern.h" />
-        <option value="$PROJECT_DIR$/src/ParseException.h" />
         <option value="$PROJECT_DIR$/examples/test.oreo" />
         <option value="$PROJECT_DIR$/src/Lexer.cpp" />
         <option value="$PROJECT_DIR$/grammar.txt" />
@@ -200,8 +212,9 @@
         <option value="$PROJECT_DIR$/src/TreeNode.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/Lexer.h" />
-        <option value="$PROJECT_DIR$/src/Parser.cpp" />
         <option value="$PROJECT_DIR$/examples/test6.oreo" />
+        <option value="$PROJECT_DIR$/src/ParseException.h" />
+        <option value="$PROJECT_DIR$/src/Parser.cpp" />
       </list>
     </option>
   </component>
@@ -336,12 +349,12 @@
       <workItem from="1570785606095" duration="3675000" />
       <workItem from="1570808039165" duration="15264000" />
       <workItem from="1570877386267" duration="18286000" />
-      <workItem from="1570963750227" duration="11332000" />
+      <workItem from="1570963750227" duration="13202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152843000" />
+    <option name="totallyTimeSpent" value="154713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -634,16 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ParseException.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          <folding>
-            <element signature="e#14#33#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/test5.oreo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -713,16 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -758,26 +751,44 @@
     <entry file="file://$PROJECT_DIR$/examples/test6.oreo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ParseException.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5238">
-          <caret line="402" column="12" lean-forward="false" selection-start-line="402" selection-start-column="12" selection-end-line="402" selection-end-column="12" />
+        <state relative-caret-position="432">
+          <caret line="71" column="20" lean-forward="true" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
           <folding>
             <element signature="e#220#427#0" expanded="false" />
             <element signature="e#429#1417#0" expanded="false" />
             <element signature="e#1419#1664#0" expanded="false" />
-            <element signature="e#6677#6902#0" expanded="false" />
-            <element signature="e#6904#7199#0" expanded="false" />
-            <element signature="e#7793#7998#0" expanded="false" />
-            <element signature="e#8420#9002#0" expanded="false" />
-            <element signature="e#9103#9469#0" expanded="false" />
-            <element signature="e#9571#9948#0" expanded="false" />
-            <element signature="e#11240#11314#0" expanded="false" />
+            <element signature="e#6743#6968#0" expanded="false" />
+            <element signature="e#6970#7265#0" expanded="false" />
+            <element signature="e#7859#8064#0" expanded="false" />
+            <element signature="e#8486#9068#0" expanded="false" />
+            <element signature="e#9169#9535#0" expanded="false" />
+            <element signature="e#9637#10014#0" expanded="false" />
+            <element signature="e#11294#11368#0" expanded="false" />
           </folding>
         </state>
       </provider>

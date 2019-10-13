@@ -70,8 +70,8 @@ void Parser::match(TokenType t, std::shared_ptr<TreeNode> node) {
         err += ", character " + std::to_string(current.getColNum());
         err += ". Expected token \'" + Lexer::TOKEN_STRINGS[static_cast<unsigned long>(t)];
         err += "\'";
-        std::cout << err.c_str() << std::endl;
-        throw ParseException(err.c_str());
+        std::cout << err << std::endl;
+        throw ParseException(nullptr);
     }
 }
 
@@ -146,7 +146,8 @@ void Parser::stmt(std::shared_ptr<TreeNode> node) {
             break;
         default:
             std::string err = "Error: Invalid statement on line " + tokens.front().getLineNum();
-            throw ParseException(err.c_str());
+            std::cout << err << std::endl;
+            throw ParseException(nullptr);
     }
 
 }
@@ -197,7 +198,8 @@ void Parser::printStmt(std::shared_ptr<TreeNode> node) {
             break;
         default:
             std::string err = "Error: Invalid IO statement on line " + tokens.front().getLineNum();
-            throw ParseException(err.c_str());
+            std::cout << err << std::endl;
+            throw ParseException(nullptr);
     }
 }
 
@@ -400,8 +402,8 @@ void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
             err += " on line " + std::to_string(t.getLineNum());
             err += ", character " + std::to_string(t.getColNum());
             err += ". Expected expression";
-            std::cout << err.c_str() << std::endl;
-            throw ParseException(err.c_str());
+            std::cout << err << std::endl;
+            throw ParseException(nullptr);
     }
 }
 
