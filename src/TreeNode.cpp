@@ -12,11 +12,7 @@ TreeNode::TreeNode(std::string l, Token t)  :
 {
 }
 
-const std::vector<TreeNode> &TreeNode::getChildren() const {
-    return children;
-}
-
-void TreeNode::addChild(const TreeNode &child) {
+void TreeNode::addChild(std::shared_ptr<TreeNode> child) {
     children.emplace_back(child);
 }
 
@@ -30,4 +26,8 @@ const std::string &TreeNode::getLabel() const {
 
 const Token &TreeNode::getToken() const {
     return token;
+}
+
+const std::vector<std::shared_ptr<TreeNode>> &TreeNode::getChildren() const {
+    return children;
 }

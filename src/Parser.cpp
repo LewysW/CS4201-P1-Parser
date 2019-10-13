@@ -4,7 +4,7 @@ using Pattern::TokenType;
 
 Parser::Parser(const std::vector<Token>& toks) :
         tokens(removeComments(toks)),
-        parseTree(TreeNode("P"))
+        parseTree(std::make_shared<TreeNode>(TreeNode("P")))
 {
     parse();
 }
@@ -14,8 +14,9 @@ void Parser::printTree() {
 }
 
 //TODO - the printing
-void Parser::printNode(TreeNode& node) {
-    Token const& token = node.getToken();
+//TODO - use static variable for tabs
+void Parser::printNode(std::shared_ptr<TreeNode> node) {
+    Token const& token = node->getToken();
 
     if (token.getType() != TokenType::NONE) {
         std::string tokStr = Lexer::TOKEN_STRINGS.at(static_cast<unsigned long>(token.getType()));
@@ -26,7 +27,7 @@ void Parser::printNode(TreeNode& node) {
         std::cout << token.getValue() << " {" << std::endl;
         
         //TODO ensure that children are found
-        for (TreeNode t : node.getChildren()) {
+        for (std::shared_ptr<TreeNode> t : node->getChildren()) {
             printNode(t);
         }
         std::cout << std::endl << "}" << std::endl;
@@ -44,12 +45,13 @@ std::vector<Token> Parser::removeComments(std::vector<Token> tokens) {
     return toks;
 }
 
-void Parser::match(TokenType t, TreeNode& node) {
+void Parser::match(TokenType t, std::shared_ptr<TreeNode> node) {
     Token current = tokens.front();
     std::string type = Lexer::TOKEN_STRINGS.at(static_cast<unsigned long>(current.getType()));
 
     if (current.getType() == t) {
-        node.addChild(TreeNode(type, current));
+        TreeNode child(type, current);
+        node->addChild(std::make_shared<TreeNode>(child));
         tokens.erase(tokens.begin());
         std::cout << "Matched " << type << std::endl;
     } else {
@@ -72,17 +74,17 @@ void Parser::parse() {
     }
 }
 
-void Parser::prog(TreeNode& node) {
-    node.setLabel("P");
+void Parser::prog(std::shared_ptr<TreeNode> node) {
+    node->setLabel("P");
 
     match(TokenType::PROGRAM, node);
     match(TokenType::ID, node);
     compound(node);
 }
 
-void Parser::compound(TreeNode &node) {
-    TreeNode child("Compound");
-    node.addChild(child);
+void Parser::compound(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Compound"));
+    node->addChild(child);
 
     match(TokenType::BEGIN, child);
     stmt(child);
@@ -90,9 +92,9 @@ void Parser::compound(TreeNode &node) {
     match(TokenType::END, child);
 }
 
-void Parser::stmts(TreeNode &node) {
-    TreeNode child("Stmts");
-    node.addChild(child);
+void Parser::stmts(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Stmts"));
+    node->addChild(child);
 
     TokenType t = tokens.front().getType();
 
@@ -112,9 +114,9 @@ void Parser::stmts(TreeNode &node) {
     }
 }
 
-void Parser::stmt(TreeNode &node) {
-    TreeNode child("Stmt");
-    node.addChild(child);
+void Parser::stmt(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Stmt"));
+    node->addChild(child);
 
     TokenType t = tokens.front().getType();
 
@@ -143,9 +145,9 @@ void Parser::stmt(TreeNode &node) {
 
 }
 
-void Parser::variable(TreeNode &node) {
-    TreeNode child("V");
-    node.addChild(child);
+void Parser::variable(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("V"));
+    node->addChild(child);
 
     match(TokenType::VAR, child);
     match(TokenType::ID, child);
@@ -157,17 +159,17 @@ void Parser::variable(TreeNode &node) {
     match(TokenType::SEMI, child);
 }
 
-void Parser::variableAssign(TreeNode &node) {
-    TreeNode child("V'");
-    node.addChild(child);
+void Parser::variableAssign(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("V'"));
+    node->addChild(child);
 
     match(TokenType::ASSIGN, child);
     expr(child);
 }
 
-void Parser::printStmt(TreeNode &node) {
-    TreeNode child("Pr");
-    node.addChild(child);
+void Parser::printStmt(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Pr"));
+    node->addChild(child);
 
     TokenType t = tokens.front().getType();
 
@@ -193,9 +195,9 @@ void Parser::printStmt(TreeNode &node) {
     }
 }
 
-void Parser::whileLoop(TreeNode &node) {
-    TreeNode child("W");
-    node.addChild(child);
+void Parser::whileLoop(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("W"));
+    node->addChild(child);
 
     match(TokenType::WHILE, child);
     match(TokenType::LPAREN, child);
@@ -205,9 +207,9 @@ void Parser::whileLoop(TreeNode &node) {
     match(TokenType::SEMI, child);
 }
 
-void Parser::ifStmt(TreeNode &node) {
-    TreeNode child("I");
-    node.addChild(child);
+void Parser::ifStmt(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("I"));
+    node->addChild(child);
 
     match(TokenType::IF, child);
     match(TokenType::LPAREN, child);
@@ -223,17 +225,17 @@ void Parser::ifStmt(TreeNode &node) {
     match(TokenType::SEMI, child);
 }
 
-void Parser::elseStmt(TreeNode &node) {
-    TreeNode child("I'");
-    node.addChild(child);
+void Parser::elseStmt(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("I'"));
+    node->addChild(child);
 
     match(TokenType::ELSE, child);
     compound(child);
 }
 
-void Parser::assign(TreeNode &node) {
-    TreeNode child("A");
-    node.addChild(child);
+void Parser::assign(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("A"));
+    node->addChild(child);
 
     match(TokenType::ID, child);
     match(TokenType::ASSIGN, child);
@@ -241,18 +243,18 @@ void Parser::assign(TreeNode &node) {
     match(TokenType::SEMI, child);
 }
 
-void Parser::expr(TreeNode& node) {
-    TreeNode child("expr");
-    node.addChild(child);
+void Parser::expr(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("expr"));
+    node->addChild(child);
     orExpr1(node);
 }
 
-void Parser::orExpr1(TreeNode &node) {
+void Parser::orExpr1(std::shared_ptr<TreeNode> node) {
     andExpr1(node);
     orExpr2(node);
 }
 
-void Parser::orExpr2(TreeNode &node) {
+void Parser::orExpr2(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::OR) {
         match(TokenType::OR, node);
         andExpr1(node);
@@ -261,12 +263,12 @@ void Parser::orExpr2(TreeNode &node) {
 
 }
 
-void Parser::andExpr1(TreeNode &node) {
+void Parser::andExpr1(std::shared_ptr<TreeNode> node) {
     equalsExpr1(node);
     andExpr2(node);
 }
 
-void Parser::andExpr2(TreeNode &node) {
+void Parser::andExpr2(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::AND) {
         match(TokenType::AND, node);
         equalsExpr1(node);
@@ -274,12 +276,12 @@ void Parser::andExpr2(TreeNode &node) {
     }
 }
 
-void Parser::equalsExpr1(TreeNode &node) {
+void Parser::equalsExpr1(std::shared_ptr<TreeNode> node) {
     relopExpr1(node);
     equalsExpr2(node);
 }
 
-void Parser::equalsExpr2(TreeNode &node) {
+void Parser::equalsExpr2(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::EQ) {
         match(TokenType::EQ, node);
         relopExpr1(node);
@@ -287,12 +289,12 @@ void Parser::equalsExpr2(TreeNode &node) {
     }
 }
 
-void Parser::relopExpr1(TreeNode &node) {
+void Parser::relopExpr1(std::shared_ptr<TreeNode> node) {
     addExpr1(node);
     relopExpr2(node);
 }
 
-void Parser::relopExpr2(TreeNode &node) {
+void Parser::relopExpr2(std::shared_ptr<TreeNode> node) {
     switch(tokens.front().getType()) {
         case TokenType::LT:
             match(TokenType::LT, node);
@@ -316,12 +318,12 @@ void Parser::relopExpr2(TreeNode &node) {
     relopExpr2(node);
 }
 
-void Parser::addExpr1(TreeNode &node) {
+void Parser::addExpr1(std::shared_ptr<TreeNode> node) {
     mulExpr1(node);
     addExpr2(node);
 }
 
-void Parser::addExpr2(TreeNode &node) {
+void Parser::addExpr2(std::shared_ptr<TreeNode> node) {
     TokenType t = tokens.front().getType();
 
     if (t == TokenType::PLUS) {
@@ -337,12 +339,12 @@ void Parser::addExpr2(TreeNode &node) {
     addExpr2(node);
 }
 
-void Parser::mulExpr1(TreeNode &node) {
+void Parser::mulExpr1(std::shared_ptr<TreeNode> node) {
     valueExpr(node);
     mulExpr2(node);
 }
 
-void Parser::mulExpr2(TreeNode &node) {
+void Parser::mulExpr2(std::shared_ptr<TreeNode> node) {
     TokenType t = tokens.front().getType();
 
     if (t == TokenType::MULTIPLY) {
@@ -358,7 +360,7 @@ void Parser::mulExpr2(TreeNode &node) {
     mulExpr2(node);
 }
 
-void Parser::valueExpr(TreeNode &node) {
+void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
     Token t = tokens.front();
 
     switch(t.getType()) {

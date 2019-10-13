@@ -2,10 +2,11 @@
 
 #include <vector>
 #include "Token.h"
+#include <memory>
 
 class TreeNode {
 private:
-    std::vector<TreeNode> children;
+    std::vector<std::shared_ptr<TreeNode>> children;
     Token token;
     std::string label;
 
@@ -14,9 +15,9 @@ public:
 
     TreeNode(std::string l, Token t);
 
-    const std::vector<TreeNode> &getChildren() const;
+    const std::vector<std::shared_ptr<TreeNode>> &getChildren() const;
 
-    void addChild(const TreeNode &child);
+    void addChild(std::shared_ptr<TreeNode> child);
 
     void setLabel(const std::string &label);
 
