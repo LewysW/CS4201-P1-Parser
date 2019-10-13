@@ -10,6 +10,8 @@ Parser::Parser(const std::vector<Token>& toks) :
 }
 
 void Parser::printTree() {
+    std::cout << "Syntactic Analysis:" << std::endl;
+    std::cout << "------------------------------------------------------------------" << std::endl;
     printNode(parseTree);
 }
 
@@ -17,20 +19,24 @@ void Parser::printTree() {
 //TODO - use static variable for tabs
 void Parser::printNode(std::shared_ptr<TreeNode> node) {
     Token const& token = node->getToken();
+    static std::string tabStr;
 
     if (token.getType() != TokenType::NONE) {
-        std::string tokStr = Lexer::TOKEN_STRINGS.at(static_cast<unsigned long>(token.getType()));
-        tokStr = tokStr + ((token.getValue().empty()) ? "" : ": " + token.getValue());
-        tokStr += ",\n";
-        std::cout << tokStr << std::endl;
+        std::string tokStr = "\"" + Lexer::TOKEN_STRINGS.at(static_cast<unsigned long>(token.getType())) + "\"";
+        tokStr += ((token.getValue().empty()) ? "" : (": \"" + token.getValue() + "\"")) ;
+        std::cout << tabStr << tokStr << std::endl;
     } else {
-        std::cout << token.getValue() << " {" << std::endl;
-        
-        //TODO ensure that children are found
-        for (std::shared_ptr<TreeNode> t : node->getChildren()) {
+        std::cout << tabStr << token.getValue() << " {" << std::endl;
+        tabStr += "\t";
+        for (const std::shared_ptr<TreeNode>& t : node->getChildren()) {
             printNode(t);
         }
-        std::cout << std::endl << "}" << std::endl;
+
+        if (tabStr.length() > 0) {
+            tabStr.erase(tabStr.length() - 1);
+        }
+
+        std::cout << tabStr << std::endl << "}" << std::endl;
     }
 }
 
@@ -53,7 +59,6 @@ void Parser::match(TokenType t, std::shared_ptr<TreeNode> node) {
         TreeNode child(type, current);
         node->addChild(std::make_shared<TreeNode>(child));
         tokens.erase(tokens.begin());
-        std::cout << "Matched " << type << std::endl;
     } else {
         std::string err = "Error: Invalid token \'" + type;
         err += "\' on line " + std::to_string(current.getLineNum());
@@ -93,9 +98,6 @@ void Parser::compound(std::shared_ptr<TreeNode> node) {
 }
 
 void Parser::stmts(std::shared_ptr<TreeNode> node) {
-    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Stmts"));
-    node->addChild(child);
-
     TokenType t = tokens.front().getType();
 
     switch(t) {
@@ -106,8 +108,8 @@ void Parser::stmts(std::shared_ptr<TreeNode> node) {
         case TokenType::WHILE:
         case TokenType::IF:
         case TokenType::ID:
-            stmt(child);
-            stmts(child);
+            stmt(node);
+            stmts(node);
             break;
         default:
             break;
