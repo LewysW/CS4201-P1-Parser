@@ -255,22 +255,25 @@ void Parser::operation(std::shared_ptr<TreeNode> node) {
     match(TokenType::ID, child);
 
     if (tokens.front().getType() == TokenType::ASSIGN) {
+        child->setLabel("Assignment");
+        child->setLabel("Assignment");
+        std::cout << "LABEL2: " << child->getLabel() << std::endl;
         assign(child);
-    } else {
+    } else if (tokens.front().getType() == TokenType::LPAREN) {
+        child->setLabel("Function Call");
+        std::cout << "LABEL3: " << child->getLabel() << std::endl;
         funcCall(child);
     }
 
 }
 
 void Parser::assign(std::shared_ptr<TreeNode> node) {
-    node->setLabel("Assignment");
     match(TokenType::ASSIGN, node);
     expr(node);
     match(TokenType::SEMI, node);
 }
 
 void Parser::funcCall(std::shared_ptr<TreeNode> node) {
-    node->setLabel("Function Call");
     match(TokenType::LPAREN, node);
     switch(tokens.front().getType()) {
         case TokenType::NOT:
@@ -297,9 +300,13 @@ void Parser::actualParams(std::shared_ptr<TreeNode> node) {
         case TokenType::STRING:
         case TokenType::NUM:
         case TokenType::TRUE:
-        case TokenType::FALSE:
-            expr(std::move(node));
+        case TokenType::FALSE: {
+            std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Actual Parameter"));
+            node->addChild(child);
+
+            expr(child);
             actualParam(node);
+        }
             break;
         default:
             break;
@@ -307,12 +314,15 @@ void Parser::actualParams(std::shared_ptr<TreeNode> node) {
 }
 
 void Parser::actualParam(std::shared_ptr<TreeNode> node) {
-    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Actual Parameter"));
-    node->addChild(child);
-
     if (tokens.front().getType() == TokenType::COMMA) {
         match(TokenType::COMMA, node);
-        actualParams(node);
+
+        std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Actual Parameter"));
+        node->addChild(child);
+
+        expr(child);
+
+        actualParam(node);
     }
 }
 
@@ -333,8 +343,13 @@ void Parser::funcSig(std::shared_ptr<TreeNode> node) {
 }
 
 void Parser::formalParams(std::shared_ptr<TreeNode> node) {
-    match(TokenType::VAR, node);
-    match(TokenType::ID, node);
+    if (tokens.front().getType() == TokenType::VAR) {
+        std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Formal Parameter"));
+        node->addChild(child);
+
+        match(TokenType::VAR, child);
+        match(TokenType::ID, child);
+    }
 
     if (tokens.front().getType() == TokenType::COMMA) {
         formalParam(node);
@@ -345,8 +360,13 @@ void Parser::formalParam(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Formal Parameter"));
     node->addChild(child);
 
-    match(TokenType::COMMA, node);
-    formalParams(child);
+    match(TokenType::COMMA, child);
+    match(TokenType::VAR, child);
+    match(TokenType::ID, child);
+
+    if (tokens.front().getType() == TokenType::COMMA) {
+        formalParam(node);
+    }
 }
 
 void Parser::returnStmt(std::shared_ptr<TreeNode> node) {
@@ -517,7 +537,8 @@ void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
 
 void Parser::idExpr(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::LPAREN) {
-        funcCall(std::move(node));
+        node->setLabel("Function Call");
+        funcCall(node);
     }
 }
 

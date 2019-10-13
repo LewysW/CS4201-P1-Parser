@@ -7,7 +7,7 @@ begin
         return x + y;
     end
 
-    procedure main ()
+    procedure main (var x)
     begin
         var result;
 
