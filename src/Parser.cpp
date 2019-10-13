@@ -112,6 +112,7 @@ void Parser::stmts(std::shared_ptr<TreeNode> node) {
         case TokenType::WHILE:
         case TokenType::IF:
         case TokenType::ID:
+        case TokenType::PROCEDURE:
             stmt(node);
             stmts(node);
             break;
@@ -142,7 +143,13 @@ void Parser::stmt(std::shared_ptr<TreeNode> node) {
             ifStmt(child);
             break;
         case TokenType::ID:
-            assign(child);
+            operation(child);
+            break;
+        case TokenType::PROCEDURE:
+            funcSig(child);
+            break;
+        case TokenType::RETURN:
+            returnStmt(child);
             break;
         default:
             std::string err = "Error: Invalid statement on line " + tokens.front().getLineNum();
@@ -241,12 +248,112 @@ void Parser::elseStmt(std::shared_ptr<TreeNode> node) {
     compound(child);
 }
 
-void Parser::assign(std::shared_ptr<TreeNode> node) {
-    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Assignment"));
+void Parser::operation(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Operation"));
     node->addChild(child);
 
     match(TokenType::ID, child);
-    match(TokenType::ASSIGN, child);
+
+    if (tokens.front().getType() == TokenType::ASSIGN) {
+        assign(child);
+    } else {
+        funcCall(child);
+    }
+
+}
+
+void Parser::assign(std::shared_ptr<TreeNode> node) {
+    node->setLabel("Assignment");
+    match(TokenType::ASSIGN, node);
+    expr(node);
+    match(TokenType::SEMI, node);
+}
+
+void Parser::funcCall(std::shared_ptr<TreeNode> node) {
+    node->setLabel("Function Call");
+    match(TokenType::LPAREN, node);
+    switch(tokens.front().getType()) {
+        case TokenType::NOT:
+        case TokenType::ID:
+        case TokenType::LPAREN:
+        case TokenType::STRING:
+        case TokenType::NUM:
+        case TokenType::TRUE:
+        case TokenType::FALSE:
+            actualParams(node);
+            break;
+        default:
+            break;
+    }
+
+    match(TokenType::RPAREN, node);
+}
+
+void Parser::actualParams(std::shared_ptr<TreeNode> node) {
+    switch(tokens.front().getType()) {
+        case TokenType::NOT:
+        case TokenType::ID:
+        case TokenType::LPAREN:
+        case TokenType::STRING:
+        case TokenType::NUM:
+        case TokenType::TRUE:
+        case TokenType::FALSE:
+            expr(std::move(node));
+            actualParam(node);
+            break;
+        default:
+            break;
+    }
+}
+
+void Parser::actualParam(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Actual Parameter"));
+    node->addChild(child);
+
+    if (tokens.front().getType() == TokenType::COMMA) {
+        match(TokenType::COMMA, node);
+        actualParams(node);
+    }
+}
+
+void Parser::funcSig(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Function Signature"));
+    node->addChild(child);
+
+    match(TokenType::PROCEDURE, child);
+    match(TokenType::ID, child);
+    match(TokenType::LPAREN, child);
+
+    if (tokens.front().getType() == TokenType::VAR) {
+        formalParams(child);
+    }
+
+    match(TokenType::RPAREN, child);
+    compound(child);
+}
+
+void Parser::formalParams(std::shared_ptr<TreeNode> node) {
+    match(TokenType::VAR, node);
+    match(TokenType::ID, node);
+
+    if (tokens.front().getType() == TokenType::COMMA) {
+        formalParam(node);
+    }
+}
+
+void Parser::formalParam(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Formal Parameter"));
+    node->addChild(child);
+
+    match(TokenType::COMMA, node);
+    formalParams(child);
+}
+
+void Parser::returnStmt(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Return Statement"));
+    node->addChild(child);
+
+    match(TokenType::RETURN, child);
     expr(child);
     match(TokenType::SEMI, child);
 }
@@ -389,6 +496,7 @@ void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
             break;
         case TokenType::ID:
             match(TokenType::ID, node);
+            idExpr(node);
             break;
         case TokenType::TRUE:
             match(TokenType::TRUE, node);
@@ -406,6 +514,13 @@ void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
             throw ParseException(nullptr);
     }
 }
+
+void Parser::idExpr(std::shared_ptr<TreeNode> node) {
+    if (tokens.front().getType() == TokenType::LPAREN) {
+        funcCall(std::move(node));
+    }
+}
+
 
 const std::vector<Token> &Parser::getTokens() const {
     return tokens;

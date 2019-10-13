@@ -25,7 +25,15 @@ private:
     void whileLoop(std::shared_ptr<TreeNode> node); //W
     void ifStmt(std::shared_ptr<TreeNode> node); //I
     void elseStmt(std::shared_ptr<TreeNode> node); //I'
-    void assign(std::shared_ptr<TreeNode> node); //A
+    void operation(std::shared_ptr<TreeNode> node); //A
+    void assign(std::shared_ptr<TreeNode> node);
+    void funcCall(std::shared_ptr<TreeNode> node); //FuncCall
+    void actualParams(std::shared_ptr<TreeNode> node); //Actual params
+    void actualParam(std::shared_ptr<TreeNode> node); //Actual param
+    void funcSig(std::shared_ptr<TreeNode> node); //FuncSig
+    void formalParams(std::shared_ptr<TreeNode> node); //FormalParams
+    void formalParam(std::shared_ptr<TreeNode> node); //FormalParam
+    void returnStmt(std::shared_ptr<TreeNode> node); //Return
     void expr(std::shared_ptr<TreeNode> node); //Added for readability in code, calls orExpr1
     void orExpr1(std::shared_ptr<TreeNode> node); //Expr1
     void orExpr2(std::shared_ptr<TreeNode> node); //Expr1'
@@ -40,6 +48,7 @@ private:
     void mulExpr1(std::shared_ptr<TreeNode> node); //Expr6
     void mulExpr2(std::shared_ptr<TreeNode> node); //Expr6'
     void valueExpr(std::shared_ptr<TreeNode> node); //Expr7
+    void idExpr(std::shared_ptr<TreeNode> node); //ID
 
 public:
     explicit Parser(const std::vector<Token>& tokens);
