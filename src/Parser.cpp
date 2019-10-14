@@ -1,7 +1,12 @@
 #include "Parser.h"
 using Pattern::TokenType;
 
-
+/**
+ * Constructor for parser
+ * Initialises tokens with a sanitised list of tokens and
+ * creates a new tree node acting as the root of the parse tree
+ * @param toks - list of tokens from lexical analysis
+ */
 Parser::Parser(const std::vector<Token>& toks) :
         tokens(removeComments(toks)),
         parseTree(std::make_shared<TreeNode>(TreeNode("Program")))
@@ -9,25 +14,46 @@ Parser::Parser(const std::vector<Token>& toks) :
     parse();
 }
 
+/**
+ * Prints the abstract syntax tree
+ */
 void Parser::printTree() {
     std::cout << "Syntactic Analysis:" << std::endl;
     std::cout << "------------------------------------------------------------------" << std::endl;
     printNode(parseTree);
 }
 
+/**
+ * Prints a node in the tree
+ * @param node - node to be printed
+ */
 void Parser::printNode(std::shared_ptr<TreeNode> node) {
+    //Gets token from node
     Token const& token = node->getToken();
+    //Stores number of tabs and commas to print
     static std::string tabStr;
     static std::string commaStr;
 
+    //If token is a terminal
     if (token.getType() != TokenType::NONE) {
+        //Surround token in quotes
+        //Add value at end of token string if an ID, number, or string literal
+        //Print token
         std::string tokStr = "\"" + Lexer::TOKEN_STRINGS.at(static_cast<unsigned long>(token.getType())) + "\"";
         tokStr += ((token.getValue().empty()) ? "" : (": \"" + token.getValue() + "\"")) ;
         std::cout << tabStr << tokStr << commaStr << std::endl;
+
+        //Otherwise if a non-terminal
     } else {
+        //Print label of non-terminal follow by ':' and open brace
         std::cout << tabStr << token.getValue() << ":" << " {" << std::endl;
+
+        //Increment number of tabs
         tabStr += "\t";
+
+        //Print each of the children in the current node
         for (auto& t : node->getChildren()) {
+            //Print a comma if not the final child
             if (t == node->getChildren().back()) {
                 commaStr = "";
             } else {
@@ -37,14 +63,21 @@ void Parser::printNode(std::shared_ptr<TreeNode> node) {
             printNode(t);
         }
 
+        //Decrement the number of tabs if leaving a non-terminal
         if (tabStr.length() > 0) {
             tabStr.erase(tabStr.length() - 1);
         }
 
+        //Print a closing brace
         std::cout << tabStr << "}" << std::endl << std::endl;
     }
 }
 
+/**
+ * Return a list of tokens with the comments removed
+ * @param tokens - list of tokens to sanitise
+ * @return sanitised list of tokens
+ */
 std::vector<Token> Parser::removeComments(std::vector<Token> tokens) {
     std::vector<Token> toks;
 
@@ -56,14 +89,27 @@ std::vector<Token> Parser::removeComments(std::vector<Token> tokens) {
     return toks;
 }
 
+/**
+ * Matches a terminal symbol
+ * @param t - expected token
+ * @param node - leaf node
+ */
 void Parser::match(TokenType t, std::shared_ptr<TreeNode> node) {
+    //Get next token
     Token current = tokens.front();
+    //Get type as string
     std::string type = Lexer::TOKEN_STRINGS.at(static_cast<unsigned long>(current.getType()));
 
+    //If token matches expected token
     if (current.getType() == t) {
+        //Add token as leaf node
         TreeNode child(type, current);
         node->addChild(std::make_shared<TreeNode>(child));
+
+        //Remove token from token list
         tokens.erase(tokens.begin());
+
+    //Otherwise throw an error
     } else {
         std::string err = "Error: Invalid token \'" + type;
         err += "\' on line " + std::to_string(current.getLineNum());
@@ -75,6 +121,9 @@ void Parser::match(TokenType t, std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Call start symbol function of grammar - prog()
+ */
 void Parser::parse() {
     try {
         prog(parseTree);
@@ -83,6 +132,10 @@ void Parser::parse() {
     }
 }
 
+/**
+ * Represents non-terminal 'P' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::prog(std::shared_ptr<TreeNode> node) {
     node->setLabel("Program");
 
@@ -91,6 +144,10 @@ void Parser::prog(std::shared_ptr<TreeNode> node) {
     compound(node);
 }
 
+/**
+ * Represents non-terminal 'Compound' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::compound(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Compound"));
     node->addChild(child);
@@ -101,6 +158,10 @@ void Parser::compound(std::shared_ptr<TreeNode> node) {
     match(TokenType::END, child);
 }
 
+/**
+ * Represents non-terminal 'Stmts' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::stmts(std::shared_ptr<TreeNode> node) {
     TokenType t = tokens.front().getType();
 
@@ -121,6 +182,10 @@ void Parser::stmts(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal 'Stmt' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::stmt(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Statement"));
     node->addChild(child);
@@ -159,6 +224,10 @@ void Parser::stmt(std::shared_ptr<TreeNode> node) {
 
 }
 
+/**
+ * Represents non-terminal V in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::variable(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Variable"));
     node->addChild(child);
@@ -173,6 +242,10 @@ void Parser::variable(std::shared_ptr<TreeNode> node) {
     match(TokenType::SEMI, child);
 }
 
+/**
+ * Represents non-terminal V' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::variableAssign(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Variable Assignment"));
     node->addChild(child);
@@ -181,6 +254,10 @@ void Parser::variableAssign(std::shared_ptr<TreeNode> node) {
     expr(child);
 }
 
+/**
+ * Represents non-terminal 'Pr' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::printStmt(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Print Statement"));
     node->addChild(child);
@@ -210,6 +287,10 @@ void Parser::printStmt(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal 'W' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::whileLoop(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("While"));
     node->addChild(child);
@@ -222,6 +303,10 @@ void Parser::whileLoop(std::shared_ptr<TreeNode> node) {
     match(TokenType::SEMI, child);
 }
 
+/**
+ * Represents non-terminal I in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::ifStmt(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("If"));
     node->addChild(child);
@@ -240,6 +325,10 @@ void Parser::ifStmt(std::shared_ptr<TreeNode> node) {
     match(TokenType::SEMI, child);
 }
 
+/**
+ * Represents non-terminal I' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::elseStmt(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Else"));
     node->addChild(child);
@@ -248,6 +337,10 @@ void Parser::elseStmt(std::shared_ptr<TreeNode> node) {
     compound(child);
 }
 
+/**
+ * Part of implementation of non-terminals A and A' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::operation(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> temp = std::make_shared<TreeNode>(TreeNode("Operation"));
     match(TokenType::ID, temp);
@@ -268,12 +361,20 @@ void Parser::operation(std::shared_ptr<TreeNode> node) {
 
 }
 
+/**
+ * Part of implementation of non-terminals A and A' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::assign(std::shared_ptr<TreeNode> node) {
     match(TokenType::ASSIGN, node);
     expr(node);
     match(TokenType::SEMI, node);
 }
 
+/**
+ * Represents non-terminal FuncCall in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::funcCall(std::shared_ptr<TreeNode> node) {
     match(TokenType::LPAREN, node);
     switch(tokens.front().getType()) {
@@ -293,6 +394,10 @@ void Parser::funcCall(std::shared_ptr<TreeNode> node) {
     match(TokenType::RPAREN, node);
 }
 
+/**
+ * Represents non-terminal ActualParams in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::actualParams(std::shared_ptr<TreeNode> node) {
     switch(tokens.front().getType()) {
         case TokenType::NOT:
@@ -314,6 +419,10 @@ void Parser::actualParams(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal ActualParam in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::actualParam(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::COMMA) {
         match(TokenType::COMMA, node);
@@ -327,6 +436,10 @@ void Parser::actualParam(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal FuncSig in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::funcSig(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Function Signature"));
     node->addChild(child);
@@ -343,6 +456,10 @@ void Parser::funcSig(std::shared_ptr<TreeNode> node) {
     compound(child);
 }
 
+/**
+ * Represents non-terminal FormalParams in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::formalParams(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::VAR) {
         std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Formal Parameter"));
@@ -357,6 +474,10 @@ void Parser::formalParams(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal FormalParam in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::formalParam(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Formal Parameter"));
     node->addChild(child);
@@ -370,6 +491,10 @@ void Parser::formalParam(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal Return in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::returnStmt(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Return Statement"));
     node->addChild(child);
@@ -379,17 +504,30 @@ void Parser::returnStmt(std::shared_ptr<TreeNode> node) {
     match(TokenType::SEMI, child);
 }
 
+/**
+ * Added for readability in parse tree/other functions
+ * Nicer to read 'expr' in above non-terminals than orExpr1 everywhere
+ * @param node - to add symbols to
+ */
 void Parser::expr(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Expression"));
     node->addChild(child);
     orExpr1(child);
 }
 
+/**
+ * Represents non-terminal Expr1 in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::orExpr1(std::shared_ptr<TreeNode> node) {
     andExpr1(node);
     orExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr1' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::orExpr2(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::OR) {
         match(TokenType::OR, node);
@@ -399,11 +537,19 @@ void Parser::orExpr2(std::shared_ptr<TreeNode> node) {
 
 }
 
+/**
+ * Represents non-terminal Expr2 in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::andExpr1(std::shared_ptr<TreeNode> node) {
     equalsExpr1(node);
     andExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr2' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::andExpr2(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::AND) {
         match(TokenType::AND, node);
@@ -412,11 +558,19 @@ void Parser::andExpr2(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal Expr3 in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::equalsExpr1(std::shared_ptr<TreeNode> node) {
     relopExpr1(node);
     equalsExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr3' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::equalsExpr2(std::shared_ptr<TreeNode> node) {
     if (tokens.front().getType() == TokenType::EQ) {
         match(TokenType::EQ, node);
@@ -425,11 +579,19 @@ void Parser::equalsExpr2(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal Expr4 in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::relopExpr1(std::shared_ptr<TreeNode> node) {
     addExpr1(node);
     relopExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr4' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::relopExpr2(std::shared_ptr<TreeNode> node) {
     switch(tokens.front().getType()) {
         case TokenType::LT:
@@ -454,11 +616,19 @@ void Parser::relopExpr2(std::shared_ptr<TreeNode> node) {
     relopExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr5 in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::addExpr1(std::shared_ptr<TreeNode> node) {
     mulExpr1(node);
     addExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr5' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::addExpr2(std::shared_ptr<TreeNode> node) {
     TokenType t = tokens.front().getType();
 
@@ -475,11 +645,19 @@ void Parser::addExpr2(std::shared_ptr<TreeNode> node) {
     addExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr6 in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::mulExpr1(std::shared_ptr<TreeNode> node) {
     valueExpr(node);
     mulExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr6' in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::mulExpr2(std::shared_ptr<TreeNode> node) {
     TokenType t = tokens.front().getType();
 
@@ -496,6 +674,10 @@ void Parser::mulExpr2(std::shared_ptr<TreeNode> node) {
     mulExpr2(node);
 }
 
+/**
+ * Represents non-terminal Expr7 in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
     Token t = tokens.front();
 
@@ -535,10 +717,15 @@ void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
     }
 }
 
+/**
+ * Represents non-terminal ID in the grammar
+ * @param node - to add symbols to
+ */
 void Parser::idExpr(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> temp = std::make_shared<TreeNode>(TreeNode("Temp"));
     match(TokenType::ID, temp);
 
+    //If id is followed by left paren, must be a function call
     if (tokens.front().getType() == TokenType::LPAREN) {
         std::shared_ptr<TreeNode> child;
         child = std::make_shared<TreeNode>(TreeNode("Function Call"));
@@ -546,6 +733,8 @@ void Parser::idExpr(std::shared_ptr<TreeNode> node) {
         node->addChild(child);
         node->setLabel("Function Call");
         funcCall(child);
+
+    //Otherwise is simply an id
     } else {
         node->addChild(temp->getChildren().front());
     }
