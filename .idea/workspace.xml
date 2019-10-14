@@ -14,7 +14,6 @@
     <list default="true" id="84cdabe8-3570-4cbc-9e9f-c1975941c707" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Parser.cpp" afterPath="$PROJECT_DIR$/src/Parser.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/Parser.h" afterPath="$PROJECT_DIR$/src/Parser.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,8 +83,8 @@
       <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="519" column="25" lean-forward="true" selection-start-line="519" selection-start-column="25" selection-end-line="519" selection-end-column="25" />
+            <state relative-caret-position="738">
+              <caret line="547" column="22" lean-forward="false" selection-start-line="547" selection-start-column="22" selection-end-line="547" selection-end-column="22" />
               <folding>
                 <element signature="e#220#427#0" expanded="false" />
                 <element signature="e#429#1417#0" expanded="false" />
@@ -340,12 +339,12 @@
       <workItem from="1570808039165" duration="15264000" />
       <workItem from="1570877386267" duration="18286000" />
       <workItem from="1570963750227" duration="33272000" />
-      <workItem from="1571043735173" duration="1429000" />
+      <workItem from="1571043735173" duration="1863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176212000" />
+    <option name="totallyTimeSpent" value="176646000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -356,7 +355,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6690871" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6690871" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -762,8 +761,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="519" column="25" lean-forward="true" selection-start-line="519" selection-start-column="25" selection-end-line="519" selection-end-column="25" />
+        <state relative-caret-position="738">
+          <caret line="547" column="22" lean-forward="false" selection-start-line="547" selection-start-column="22" selection-end-line="547" selection-end-column="22" />
           <folding>
             <element signature="e#220#427#0" expanded="false" />
             <element signature="e#429#1417#0" expanded="false" />

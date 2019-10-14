@@ -516,7 +516,6 @@ void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
             match(TokenType::NUM, node);
             break;
         case TokenType::ID:
-            match(TokenType::ID, node);
             idExpr(node);
             break;
         case TokenType::TRUE:
@@ -537,8 +536,17 @@ void Parser::valueExpr(std::shared_ptr<TreeNode> node) {
 }
 
 void Parser::idExpr(std::shared_ptr<TreeNode> node) {
+    std::shared_ptr<TreeNode> temp = std::make_shared<TreeNode>(TreeNode("Temp"));
+    match(TokenType::ID, temp);
+
     if (tokens.front().getType() == TokenType::LPAREN) {
+        std::shared_ptr<TreeNode> child;
+        child = std::make_shared<TreeNode>(TreeNode("Function Call"));
+        child->addChild(temp->getChildren().front());
+        node->addChild(child);
         node->setLabel("Function Call");
-        funcCall(node);
+        funcCall(child);
+    } else {
+        node->addChild(temp->getChildren().front());
     }
 }
