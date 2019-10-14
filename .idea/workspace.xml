@@ -12,10 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84cdabe8-3570-4cbc-9e9f-c1975941c707" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/TreeNode.cpp.o" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Lexer.h" afterPath="$PROJECT_DIR$/src/Lexer.h" />
-      <change beforePath="$PROJECT_DIR$/src/TreeNode.cpp" afterPath="$PROJECT_DIR$/src/TreeNode.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -137,42 +134,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Lexer.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Lexer.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-              <folding>
-                <element signature="e#14#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3475">
-              <caret line="529" column="54" lean-forward="false" selection-start-line="529" selection-start-column="54" selection-end-line="529" selection-end-column="54" />
-              <folding>
-                <element signature="e#1419#1664#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeNode.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TreeNode.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -235,8 +197,8 @@
         <option value="$PROJECT_DIR$/examples/function.oreo" />
         <option value="$PROJECT_DIR$/src/TreeNode.h" />
         <option value="$PROJECT_DIR$/src/Lexer.cpp" />
-        <option value="$PROJECT_DIR$/src/Lexer.h" />
         <option value="$PROJECT_DIR$/src/TreeNode.cpp" />
+        <option value="$PROJECT_DIR$/src/Lexer.h" />
       </list>
     </option>
   </component>
@@ -373,16 +335,15 @@
       <workItem from="1570808039165" duration="15264000" />
       <workItem from="1570877386267" duration="18286000" />
       <workItem from="1570963750227" duration="33272000" />
-      <workItem from="1571043735173" duration="9576000" />
+      <workItem from="1571043735173" duration="9992000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184359000" />
+    <option name="totallyTimeSpent" value="184775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -782,10 +743,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Lexer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="954">
+          <caret line="84" column="25" lean-forward="false" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
           <folding>
             <element signature="e#14#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9360">
+          <caret line="529" column="54" lean-forward="false" selection-start-line="529" selection-start-column="54" selection-end-line="529" selection-end-column="54" />
+          <folding>
+            <element signature="e#1419#1664#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -795,16 +766,6 @@
         <state relative-caret-position="360">
           <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3475">
-          <caret line="529" column="54" lean-forward="false" selection-start-line="529" selection-start-column="54" selection-end-line="529" selection-end-column="54" />
-          <folding>
-            <element signature="e#1419#1664#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
