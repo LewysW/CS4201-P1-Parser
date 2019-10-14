@@ -250,7 +250,6 @@ void Parser::elseStmt(std::shared_ptr<TreeNode> node) {
 
 void Parser::operation(std::shared_ptr<TreeNode> node) {
     std::shared_ptr<TreeNode> temp = std::make_shared<TreeNode>(TreeNode("Operation"));
-
     match(TokenType::ID, temp);
 
     std::shared_ptr<TreeNode> child;
@@ -264,6 +263,7 @@ void Parser::operation(std::shared_ptr<TreeNode> node) {
         child->addChild(temp->getChildren().front());
         node->addChild(child);
         funcCall(child);
+        match(TokenType::SEMI, child);
     }
 
 }
