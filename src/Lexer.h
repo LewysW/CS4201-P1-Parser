@@ -1,7 +1,5 @@
-//#pragma once
+#pragma once
 
-#ifndef LEXER_H
-#define LEXER_H
 #include "Pattern.h"
 #include "ParseException.h"
 #include "Token.h"
@@ -90,7 +88,4 @@ public:
             "ID"
     };
 };
-
-#endif
-
 

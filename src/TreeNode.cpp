@@ -20,10 +20,6 @@ void TreeNode::setLabel(const std::string &label) {
     TreeNode::label = label;
 }
 
-const std::string &TreeNode::getLabel() const {
-    return label;
-}
-
 const Token &TreeNode::getToken() const {
     return token;
 }
