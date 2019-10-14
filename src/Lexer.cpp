@@ -69,7 +69,7 @@ std::vector<Token> Lexer::tokenize() const {
     unsigned long charCount = 1;
 
     //Stores the length of the current token
-    int tokLen = 1;
+    unsigned long tokLen = 1;
 
     //Gets the file content and length of the file
     std::string content = getFileContent();
@@ -137,7 +137,7 @@ std::string Lexer::buffer(std::string& stream) const {
     unsigned long len = stream.length();
     unsigned long pos = 1;
     unsigned long lineCount = 0;
-    int tokLen = 0;
+    unsigned long tokLen = 0;
     std::string buffer;
     std::string lookahead;
 
@@ -159,7 +159,7 @@ std::string Lexer::buffer(std::string& stream) const {
     return buffer;
 }
 
-Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen, unsigned long& lineCount) const {
+Pattern::TokenType Lexer::isComment(std::string &s, unsigned long &tokLen, unsigned long &lineCount) const {
     unsigned long len = s.length();
     tokLen = 0;
     unsigned long lines = 0;
@@ -185,7 +185,7 @@ Pattern::TokenType Lexer::isComment(std::string& s, int& tokLen, unsigned long& 
     }
 }
 
-Pattern::TokenType Lexer::isStrLiteral(std::string& s, int& tokLen) const {
+Pattern::TokenType Lexer::isStrLiteral(std::string &s, unsigned long &tokLen) const {
     unsigned long len = s.length();
     tokLen = 0;
     std::string symbol = s.substr(0 , 1);
@@ -208,7 +208,7 @@ Pattern::TokenType Lexer::isStrLiteral(std::string& s, int& tokLen) const {
     }
 }
 
-Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
+Pattern::TokenType Lexer::isOperator(std::string &s, unsigned long &tokLen) const {
     std::string sub = s.substr(0, 2);
     char first = sub.at(0);
     char second = sub.at(1);
@@ -270,7 +270,7 @@ Pattern::TokenType Lexer::isOperator(std::string& s, int& tokLen) const {
     }
 }
 
-Pattern::TokenType Lexer::isKeyword(string& s, int& tokLen, map<string, TokenType> const& keywords) const {
+Pattern::TokenType Lexer::isKeyword(string &s, unsigned long &tokLen, map<string, TokenType> const &keywords) const {
     tokLen = static_cast<int>(s.length());
 
     if (keywords.find(s) != keywords.end()) {
@@ -280,7 +280,7 @@ Pattern::TokenType Lexer::isKeyword(string& s, int& tokLen, map<string, TokenTyp
     }
 }
 
-Pattern::TokenType Lexer::isNumeric(string& s, int& tokLen) const {
+Pattern::TokenType Lexer::isNumeric(string &s, unsigned long &tokLen) const {
     tokLen = static_cast<int>(s.length());
 
     //Checks for valid number
@@ -293,7 +293,7 @@ Pattern::TokenType Lexer::isNumeric(string& s, int& tokLen) const {
     return TokenType::NUM;
 }
 
-Pattern::TokenType Lexer::isIdentifier(string& s, int& tokLen) const {
+Pattern::TokenType Lexer::isIdentifier(string &s, unsigned long &tokLen) const {
     string id = "([a-zA-Z_]+)([a-zA-Z_0-9])*";
     std::regex pattern(id);
 

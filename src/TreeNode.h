@@ -22,8 +22,6 @@ public:
 
     void setLabel(const std::string &label);
 
-    const std::string &getLabel() const;
-
     const Token &getToken() const;
 
 };

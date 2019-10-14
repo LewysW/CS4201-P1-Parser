@@ -1,0 +1,182 @@
+Lexical Analysis:
+------------------------------------------------------------------
+program
+ID: Test
+begin
+COMMENT: {- define the procedure function -}
+procedure
+ID: function
+(
+var
+ID: x
+,
+var
+ID: y
+)
+begin
+return
+ID: x
++
+ID: y
+;
+end
+procedure
+ID: main
+(
+var
+ID: x
+)
+begin
+var
+ID: result
+;
+COMMENT: {- call the procedure called
+            function -}
+ID: result
+:=
+ID: function
+(
+NUM: 1
+,
+NUM: 2
+)
+;
+print
+(
+ID: result
+)
+;
+end
+end
+
+Syntactic Analysis:
+------------------------------------------------------------------
+Program: {
+	"program",
+	"ID": "Test",
+	Compound: {
+		"begin",
+		Statement: {
+			Function Signature: {
+				"procedure",
+				"ID": "function",
+				"(",
+				Formal Parameter: {
+					"var",
+					"ID": "x"
+				}
+
+				Formal Parameter: {
+					",",
+					"var",
+					"ID": "y"
+				}
+
+				")",
+				Compound: {
+					"begin",
+					Statement: {
+						Return Statement: {
+							"return",
+							Expression: {
+								"ID": "x",
+								"+",
+								"ID": "y"
+							}
+
+							";"
+						}
+
+					}
+
+					"end"
+				}
+
+			}
+
+		}
+
+		Statement: {
+			Function Signature: {
+				"procedure",
+				"ID": "main",
+				"(",
+				Formal Parameter: {
+					"var",
+					"ID": "x"
+				}
+
+				")",
+				Compound: {
+					"begin",
+					Statement: {
+						Variable: {
+							"var",
+							"ID": "result",
+							";"
+						}
+
+					}
+
+					Statement: {
+						Assignment: {
+							"ID": "result",
+							":=",
+							Expression: {
+								Function Call: {
+									"ID": "function",
+									"(",
+									Actual Parameter: {
+										Expression: {
+											"NUM": "1"
+										}
+
+									}
+
+									",",
+									Actual Parameter: {
+										Expression: {
+											"NUM": "2"
+										}
+
+									}
+
+									")"
+								}
+
+							}
+
+							";"
+						}
+
+					}
+
+					Statement: {
+						Print Statement: {
+							"print",
+							Expression: {
+								"(",
+								Expression: {
+									"ID": "result"
+								}
+
+								")"
+							}
+
+							";"
+						}
+
+					}
+
+					"end"
+				}
+
+			}
+
+		}
+
+		"end"
+	}
+
+}
+

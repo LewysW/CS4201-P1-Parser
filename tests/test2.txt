@@ -1,0 +1,73 @@
+Lexical Analysis:
+------------------------------------------------------------------
+COMMENT: {- missing a semi colon -}
+program
+ID: test
+begin
+var
+ID: n
+;
+var
+ID: first
+:=
+NUM: 0
+;
+var
+ID: second
+:=
+NUM: 1
+;
+var
+ID: next
+;
+var
+ID: c
+:=
+NUM: 0
+print
+STRING: "enter the number of terms"
+;
+get
+ID: n
+;
+while
+(
+ID: first
+<
+(
+ID: second
+>
+NUM: 32
+)
+)
+begin
+if
+(
+true
+)
+then
+begin
+ID: n
+:=
+NUM: 5
+;
+end
+else
+begin
+ID: n
+:=
+NUM: 46
+;
+end
+;
+ID: c
+:=
+ID: c
++
+NUM: 1
+;
+end
+;
+end
+
+Error: Invalid token 'print' on line 12, character 5. Expected token ';'

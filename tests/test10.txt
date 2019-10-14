@@ -1,0 +1,80 @@
+Lexical Analysis:
+------------------------------------------------------------------
+COMMENT: {- invalid ID -}
+program
+ID: test10
+begin
+var
+ID: n
+;
+var
+ID: first
+:=
+NUM: 0
+;
+var
+ID: second
+:=
+NUM: 1
+;
+var
+ID: next
+;
+var
+NUM: 99
+:=
+NUM: 0
+;
+print
+STRING: "enter the number of terms"
+;
+COMMENT: {- comment in body -}
+get
+ID: n
+;
+while
+(
+ID: first
+<
+(
+ID: second
+>
+NUM: 32
+)
+)
+begin
+if
+(
+not
+false
+)
+then
+begin
+ID: n
+:=
+NUM: 5
+;
+end
+else
+begin
+ID: n
+:=
+NUM: 46
+;
+end
+;
+COMMENT: {- comment
+                        over
+                        multiple 
+                        lines -}
+ID: c
+:=
+ID: c
++
+NUM: 1
+;
+end
+;
+end
+
+Error: Invalid token 'NUM' on line 10, character 6. Expected token 'ID'

@@ -1,0 +1,279 @@
+Lexical Analysis:
+------------------------------------------------------------------
+COMMENT: {- ambiguous expression in if -}
+program
+ID: test6
+begin
+var
+ID: n
+;
+var
+ID: first
+:=
+NUM: 0
+;
+var
+ID: second
+:=
+NUM: 1
+;
+var
+ID: next
+;
+var
+ID: c
+:=
+NUM: 0
+;
+print
+STRING: "enter the number of terms"
+;
+get
+ID: n
+;
+while
+(
+ID: first
+<
+(
+ID: second
+>
+NUM: 32
+)
+)
+begin
+if
+(
+not
+false
+or
+true
+)
+then
+begin
+ID: n
+:=
+NUM: 5
+;
+end
+else
+begin
+ID: n
+:=
+NUM: 46
+;
+end
+;
+ID: c
+:=
+ID: c
++
+NUM: 1
+;
+end
+;
+end
+
+Syntactic Analysis:
+------------------------------------------------------------------
+Program: {
+	"program",
+	"ID": "test6",
+	Compound: {
+		"begin",
+		Statement: {
+			Variable: {
+				"var",
+				"ID": "n",
+				";"
+			}
+
+		}
+
+		Statement: {
+			Variable: {
+				"var",
+				"ID": "first",
+				Variable Assignment: {
+					":=",
+					Expression: {
+						"NUM": "0"
+					}
+
+				}
+
+				";"
+			}
+
+		}
+
+		Statement: {
+			Variable: {
+				"var",
+				"ID": "second",
+				Variable Assignment: {
+					":=",
+					Expression: {
+						"NUM": "1"
+					}
+
+				}
+
+				";"
+			}
+
+		}
+
+		Statement: {
+			Variable: {
+				"var",
+				"ID": "next",
+				";"
+			}
+
+		}
+
+		Statement: {
+			Variable: {
+				"var",
+				"ID": "c",
+				Variable Assignment: {
+					":=",
+					Expression: {
+						"NUM": "0"
+					}
+
+				}
+
+				";"
+			}
+
+		}
+
+		Statement: {
+			Print Statement: {
+				"print",
+				Expression: {
+					"STRING": ""enter the number of terms""
+				}
+
+				";"
+			}
+
+		}
+
+		Statement: {
+			Print Statement: {
+				"get",
+				"ID": "n",
+				";"
+			}
+
+		}
+
+		Statement: {
+			While: {
+				"while",
+				"(",
+				Expression: {
+					"ID": "first",
+					"<",
+					"(",
+					Expression: {
+						"ID": "second",
+						">",
+						"NUM": "32"
+					}
+
+					")"
+				}
+
+				")",
+				Compound: {
+					"begin",
+					Statement: {
+						If: {
+							"if",
+							"(",
+							Expression: {
+								"not",
+								"false",
+								"or",
+								"true"
+							}
+
+							")",
+							"then",
+							Compound: {
+								"begin",
+								Statement: {
+									Assignment: {
+										"ID": "n",
+										":=",
+										Expression: {
+											"NUM": "5"
+										}
+
+										";"
+									}
+
+								}
+
+								"end"
+							}
+
+							Else: {
+								"else",
+								Compound: {
+									"begin",
+									Statement: {
+										Assignment: {
+											"ID": "n",
+											":=",
+											Expression: {
+												"NUM": "46"
+											}
+
+											";"
+										}
+
+									}
+
+									"end"
+								}
+
+							}
+
+							";"
+						}
+
+					}
+
+					Statement: {
+						Assignment: {
+							"ID": "c",
+							":=",
+							Expression: {
+								"ID": "c",
+								"+",
+								"NUM": "1"
+							}
+
+							";"
+						}
+
+					}
+
+					"end"
+				}
+
+				";"
+			}
+
+		}
+
+		"end"
+	}
+
+}
+

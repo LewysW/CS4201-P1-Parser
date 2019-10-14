@@ -27,17 +27,18 @@ public:
 
     std::vector<Token> tokenize() const;
 
-    Pattern::TokenType isComment(std::string& s, int& tokLen, unsigned long& lineCount) const;
+    Pattern::TokenType isComment(std::string &s, unsigned long &tokLen, unsigned long &lineCount) const;
 
-    Pattern::TokenType isStrLiteral(std::string& s, int& tokLen) const;
+    Pattern::TokenType isStrLiteral(std::string &s, unsigned long &tokLen) const;
 
-    Pattern::TokenType isOperator(std::string& stream, int& tokLen) const;
+    Pattern::TokenType isOperator(std::string &stream, unsigned long &tokLen) const;
 
-    Pattern::TokenType isKeyword(std::string& s, int& tokLen, std::map<std::string, Pattern::TokenType> const& keywords) const;
+    Pattern::TokenType isKeyword(std::string &s, unsigned long &tokLen,
+                                 std::map<std::string, Pattern::TokenType> const &keywords) const;
 
-    Pattern::TokenType isNumeric(std::string& s, int& tokLen) const;
+    Pattern::TokenType isNumeric(std::string &s, unsigned long &tokLen) const;
 
-    Pattern::TokenType isIdentifier(std::string& s, int& tokLen) const;
+    Pattern::TokenType isIdentifier(std::string &s, unsigned long &tokLen) const;
 
     std::map<std::string, Pattern::TokenType> getKeywords() const;
 
