@@ -12,9 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84cdabe8-3570-4cbc-9e9f-c1975941c707" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Parser.h" afterPath="$PROJECT_DIR$/src/Parser.h" />
-      <change beforePath="$PROJECT_DIR$/src/Pattern.h" afterPath="$PROJECT_DIR$/src/Pattern.h" />
       <change beforePath="$PROJECT_DIR$/src/Token.cpp" afterPath="$PROJECT_DIR$/src/Token.cpp" />
+      <change beforePath="$PROJECT_DIR$/src/Token.h" afterPath="$PROJECT_DIR$/src/Token.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,12 +46,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Token.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Token.cpp">
+      <file leaf-file-name="Token.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Token.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="558">
+              <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+              <folding>
+                <element signature="e#14#31#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,7 +110,6 @@
         <option value="$PROJECT_DIR$/Token.cpp" />
         <option value="$PROJECT_DIR$/Lexer.h" />
         <option value="$PROJECT_DIR$/examples/test.oreo" />
-        <option value="$PROJECT_DIR$/src/Token.h" />
         <option value="$PROJECT_DIR$/examples/test6.oreo" />
         <option value="$PROJECT_DIR$/grammar.txt" />
         <option value="$PROJECT_DIR$/examples/function.oreo" />
@@ -123,6 +123,7 @@
         <option value="$PROJECT_DIR$/src/Parser.h" />
         <option value="$PROJECT_DIR$/src/Pattern.h" />
         <option value="$PROJECT_DIR$/src/Token.cpp" />
+        <option value="$PROJECT_DIR$/src/Token.h" />
       </list>
     </option>
   </component>
@@ -259,12 +260,12 @@
       <workItem from="1570808039165" duration="15264000" />
       <workItem from="1570877386267" duration="18286000" />
       <workItem from="1570963750227" duration="33272000" />
-      <workItem from="1571043735173" duration="11931000" />
+      <workItem from="1571043735173" duration="12070000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186714000" />
+    <option name="totallyTimeSpent" value="186853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -493,14 +494,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Token.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/functions.oreo">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -681,9 +674,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Token.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        <state relative-caret-position="90">
+          <caret line="5" column="54" lean-forward="false" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Token.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+          <folding>
+            <element signature="e#14#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

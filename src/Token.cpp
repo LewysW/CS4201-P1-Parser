@@ -3,7 +3,7 @@
 /**
  * Constructor for token
  * @param tok - type of token (enum)
- * @param val - value if a string, number, comment
+ * @param val - value if a string, number, comment, id
  * @param line - line token was found
  * @param col - column token was found at
  */
