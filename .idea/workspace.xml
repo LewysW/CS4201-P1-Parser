@@ -12,14 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84cdabe8-3570-4cbc-9e9f-c1975941c707" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CS4201_P1_Parser" afterPath="$PROJECT_DIR$/cmake-build-debug/CS4201_P1_Parser" />
-      <change beforePath="$PROJECT_DIR$/examples/function.oreo" afterPath="$PROJECT_DIR$/examples/function.oreo" />
-      <change beforePath="$PROJECT_DIR$/grammar.txt" afterPath="$PROJECT_DIR$/grammar.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CS4201_P1_Parser.dir/src/Parser.cpp.o" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Parser.cpp" afterPath="$PROJECT_DIR$/src/Parser.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/TreeNode.h" afterPath="$PROJECT_DIR$/src/TreeNode.h" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
+      <change beforePath="$PROJECT_DIR$/src/Parser.h" afterPath="$PROJECT_DIR$/src/Parser.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,10 +29,10 @@
       <content type="file-editors">
         <state>
           <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="grammar.txt" pinned="false" current-in-tab="true">
+            <file leaf-file-name="grammar.txt" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/grammar.txt">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="25">
+                  <state relative-caret-position="39">
                     <caret line="27" column="42" lean-forward="false" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
                     <folding />
                   </state>
@@ -47,8 +42,8 @@
             <file leaf-file-name="Parser.h" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/Parser.h">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="363">
-                    <caret line="35" column="61" lean-forward="false" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
+                  <state relative-caret-position="723">
+                    <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
                     <folding>
                       <element signature="e#14#35#0" expanded="true" />
                     </folding>
@@ -56,7 +51,7 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="function.oreo" pinned="false" current-in-tab="false">
+            <file leaf-file-name="function.oreo" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/examples/function.oreo">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="162">
@@ -74,7 +69,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -86,19 +81,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="249" column="0" lean-forward="true" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+            <state relative-caret-position="432">
+              <caret line="519" column="25" lean-forward="true" selection-start-line="519" selection-start-column="25" selection-end-line="519" selection-end-column="25" />
               <folding>
                 <element signature="e#220#427#0" expanded="false" />
                 <element signature="e#429#1417#0" expanded="false" />
                 <element signature="e#1419#1664#0" expanded="false" />
-                <element signature="e#11466#11671#0" expanded="false" />
-                <element signature="e#12093#12675#0" expanded="false" />
-                <element signature="e#13244#13621#0" expanded="false" />
-                <element signature="e#15113#15187#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -108,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/src/TreeNode.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
-              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+              <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
               <folding>
                 <element signature="e#14#31#0" expanded="true" />
               </folding>
@@ -120,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/TreeNode.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,7 +120,7 @@
       <file leaf-file-name="Lexer.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Lexer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
+            <state relative-caret-position="918">
               <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
               <folding />
             </state>
@@ -139,8 +130,8 @@
       <file leaf-file-name="Lexer.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Lexer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="112" column="32" lean-forward="false" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="32" />
+            <state relative-caret-position="1998">
+              <caret line="111" column="24" lean-forward="false" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
               <folding>
                 <element signature="e#763#1419#0" expanded="false" />
                 <element signature="e#4408#5246#0" expanded="false" />
@@ -206,13 +197,13 @@
         <option value="$PROJECT_DIR$/src/Lexer.h" />
         <option value="$PROJECT_DIR$/src/ParseException.h" />
         <option value="$PROJECT_DIR$/examples/test6.oreo" />
-        <option value="$PROJECT_DIR$/src/Parser.h" />
         <option value="$PROJECT_DIR$/examples/function.oreo" />
         <option value="$PROJECT_DIR$/grammar.txt" />
         <option value="$PROJECT_DIR$/src/TreeNode.h" />
         <option value="$PROJECT_DIR$/src/TreeNode.cpp" />
-        <option value="$PROJECT_DIR$/src/Parser.cpp" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/src/Parser.h" />
+        <option value="$PROJECT_DIR$/src/Parser.cpp" />
       </list>
     </option>
   </component>
@@ -349,11 +340,12 @@
       <workItem from="1570808039165" duration="15264000" />
       <workItem from="1570877386267" duration="18286000" />
       <workItem from="1570963750227" duration="33272000" />
+      <workItem from="1571043735173" duration="1429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174783000" />
+    <option name="totallyTimeSpent" value="176212000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -364,8 +356,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6690871" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6690871" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -376,6 +367,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987553" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -546,9 +538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#14#33#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -619,7 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="1069" column="0" lean-forward="false" selection-start-line="1069" selection-start-column="0" selection-end-line="1069" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -641,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Lexer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="112" column="32" lean-forward="false" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="32" />
+        <state relative-caret-position="1998">
+          <caret line="111" column="24" lean-forward="false" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
           <folding>
             <element signature="e#763#1419#0" expanded="false" />
             <element signature="e#4408#5246#0" expanded="false" />
@@ -657,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -665,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="20" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -673,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
           <caret line="525" column="0" lean-forward="false" selection-start-line="525" selection-start-column="0" selection-end-line="525" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -681,13 +666,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Lexer.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
+        <state relative-caret-position="918">
           <caret line="51" column="14" lean-forward="false" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
           <folding />
         </state>
@@ -705,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -713,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
           <caret line="1015" column="0" lean-forward="false" selection-start-line="1015" selection-start-column="0" selection-end-line="1015" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -721,17 +703,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TreeNode.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TreeNode.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding>
+            <element signature="e#14#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="146" lean-forward="false" selection-start-line="12" selection-start-column="146" selection-end-line="12" selection-end-column="146" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="35" column="61" lean-forward="false" selection-start-line="35" selection-start-column="61" selection-end-line="35" selection-end-column="61" />
+        <state relative-caret-position="723">
+          <caret line="55" column="21" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
           <folding>
             <element signature="e#14#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grammar.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="27" column="42" lean-forward="false" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -743,54 +760,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grammar.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="27" column="42" lean-forward="false" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TreeNode.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TreeNode.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding>
-            <element signature="e#14#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="249" column="0" lean-forward="true" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="519" column="25" lean-forward="true" selection-start-line="519" selection-start-column="25" selection-end-line="519" selection-end-column="25" />
           <folding>
             <element signature="e#220#427#0" expanded="false" />
             <element signature="e#429#1417#0" expanded="false" />
             <element signature="e#1419#1664#0" expanded="false" />
-            <element signature="e#11466#11671#0" expanded="false" />
-            <element signature="e#12093#12675#0" expanded="false" />
-            <element signature="e#13244#13621#0" expanded="false" />
-            <element signature="e#15113#15187#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="146" lean-forward="false" selection-start-line="12" selection-start-column="146" selection-end-line="12" selection-end-column="146" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -249,19 +249,20 @@ void Parser::elseStmt(std::shared_ptr<TreeNode> node) {
 }
 
 void Parser::operation(std::shared_ptr<TreeNode> node) {
-    std::shared_ptr<TreeNode> child = std::make_shared<TreeNode>(TreeNode("Operation"));
-    node->addChild(child);
+    std::shared_ptr<TreeNode> temp = std::make_shared<TreeNode>(TreeNode("Operation"));
 
-    match(TokenType::ID, child);
+    match(TokenType::ID, temp);
 
+    std::shared_ptr<TreeNode> child;
     if (tokens.front().getType() == TokenType::ASSIGN) {
-        child->setLabel("Assignment");
-        child->setLabel("Assignment");
-        std::cout << "LABEL2: " << child->getLabel() << std::endl;
+        child = std::make_shared<TreeNode>(TreeNode("Assignment"));
+        child->addChild(temp->getChildren().front());
+        node->addChild(child);
         assign(child);
     } else if (tokens.front().getType() == TokenType::LPAREN) {
-        child->setLabel("Function Call");
-        std::cout << "LABEL3: " << child->getLabel() << std::endl;
+        child = std::make_shared<TreeNode>(TreeNode("Function Call"));
+        child->addChild(temp->getChildren().front());
+        node->addChild(child);
         funcCall(child);
     }
 
@@ -540,9 +541,4 @@ void Parser::idExpr(std::shared_ptr<TreeNode> node) {
         node->setLabel("Function Call");
         funcCall(node);
     }
-}
-
-
-const std::vector<Token> &Parser::getTokens() const {
-    return tokens;
 }
