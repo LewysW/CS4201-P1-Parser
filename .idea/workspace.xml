@@ -12,7 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84cdabe8-3570-4cbc-9e9f-c1975941c707" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" afterPath="$PROJECT_DIR$/src/main.cpp" />
+      <change beforePath="$PROJECT_DIR$/src/ParseException.h" afterPath="$PROJECT_DIR$/src/ParseException.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -135,13 +135,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="9360">
+              <caret line="529" column="54" lean-forward="false" selection-start-line="529" selection-start-column="54" selection-end-line="529" selection-end-column="54" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#1419#1664#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -201,7 +201,6 @@
         <option value="$PROJECT_DIR$/src/Pattern.h" />
         <option value="$PROJECT_DIR$/examples/test.oreo" />
         <option value="$PROJECT_DIR$/src/Token.h" />
-        <option value="$PROJECT_DIR$/src/ParseException.h" />
         <option value="$PROJECT_DIR$/examples/test6.oreo" />
         <option value="$PROJECT_DIR$/grammar.txt" />
         <option value="$PROJECT_DIR$/src/Parser.h" />
@@ -212,6 +211,7 @@
         <option value="$PROJECT_DIR$/src/TreeNode.cpp" />
         <option value="$PROJECT_DIR$/src/Lexer.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/src/ParseException.h" />
       </list>
     </option>
   </component>
@@ -348,12 +348,12 @@
       <workItem from="1570808039165" duration="15264000" />
       <workItem from="1570877386267" duration="18286000" />
       <workItem from="1570963750227" duration="33272000" />
-      <workItem from="1571043735173" duration="10167000" />
+      <workItem from="1571043735173" duration="10248000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184950000" />
+    <option name="totallyTimeSpent" value="185031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -584,14 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ParseException.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/c++/9/bits/shared_ptr_base.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
@@ -738,16 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9360">
-          <caret line="529" column="54" lean-forward="false" selection-start-line="529" selection-start-column="54" selection-end-line="529" selection-end-column="54" />
-          <folding>
-            <element signature="e#1419#1664#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TreeNode.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -768,10 +750,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="486">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ParseException.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9360">
+          <caret line="529" column="54" lean-forward="false" selection-start-line="529" selection-start-column="54" selection-end-line="529" selection-end-column="54" />
+          <folding>
+            <element signature="e#1419#1664#0" expanded="false" />
           </folding>
         </state>
       </provider>
