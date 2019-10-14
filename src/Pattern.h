@@ -2,27 +2,28 @@
 
 #include <string>
 #include <vector>
-#define TOKEN_NUM 39
-//#include "Lexer.h"
 
+/**
+ * Pattern namespace defines an enum class of TokenTypes
+ */
 namespace Pattern {
     enum class TokenType {
         NONE = 0,
-        LT, //Less than
-        LTE, //Less than equal to
-        GT, //Greater than
-        GTE, //Greater than equal to
-        EQ, //Equality
-        ASSIGN, //assignment
-        SEMI, //Semi colon
-        PLUS, // +
-        MINUS, // -
-        DIVIDE, // '/'
-        MULTIPLY, // *
-        STRING, // String literals
-        LPAREN, // (
-        RPAREN, // )
-        COMMENT, // coments {- -}
+        LT,
+        LTE,
+        GT,
+        GTE,
+        EQ,
+        ASSIGN,
+        SEMI,
+        PLUS,
+        MINUS,
+        DIVIDE,
+        MULTIPLY,
+        STRING,
+        LPAREN,
+        RPAREN,
+        COMMENT,
         COMMA,
         BEGIN,
         END,
@@ -42,7 +43,7 @@ namespace Pattern {
         NOT,
         TRUE,
         FALSE,
-        NEWLINE, // \n
+        NEWLINE,
         WHITESPACE,
         NUM,
         ID

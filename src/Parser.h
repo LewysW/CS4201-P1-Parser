@@ -25,8 +25,8 @@ private:
     void whileLoop(std::shared_ptr<TreeNode> node); //W
     void ifStmt(std::shared_ptr<TreeNode> node); //I
     void elseStmt(std::shared_ptr<TreeNode> node); //I'
-    void operation(std::shared_ptr<TreeNode> node); //A
-    void assign(std::shared_ptr<TreeNode> node);
+    void operation(std::shared_ptr<TreeNode> node); //A / A'
+    void assign(std::shared_ptr<TreeNode> node); //A / A'
     void funcCall(std::shared_ptr<TreeNode> node); //FuncCall
     void actualParams(std::shared_ptr<TreeNode> node); //Actual params
     void actualParam(std::shared_ptr<TreeNode> node); //Actual param
